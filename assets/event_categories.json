@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "parent_category_id": null,
+    "name": "Kultura"
+  },
+  {
+    "id": 2,
+    "parent_category_id": 1,
+    "name": "Sztuki wizualne"
+  },
+  {
+    "id": 3,
+    "parent_category_id": 1,
+    "name": "Muzyka"
+  },
+  {
+    "id": 4,
+    "parent_category_id": 1,
+    "name": "Muzeum"
+  },
+  {
+    "id": 5,
+    "parent_category_id": 1,
+    "name": "Teatr"
+  },
+  {
+    "id": 6,
+    "parent_category_id": 1,
+    "name": "Kino"
+  },
+  {
+    "id": 7,
+    "parent_category_id": null,
+    "name": "Oświata"
+  },
+  {
+    "id": 8,
+    "parent_category_id": null,
+    "name": "Ochrona zdrowia"
+  },
+  {
+    "id": 9,
+    "parent_category_id": null,
+    "name": "Sport"
+  },
+  {
+    "id": 10,
+    "parent_category_id": null,
+    "name": "Turystyka"
+  },
+  {
+    "id": 11,
+    "parent_category_id": null,
+    "name": "Gospodarka"
+  },
+  {
+    "id": 12,
+    "parent_category_id": null,
+    "name": "Ekologia"
+  },
+  {
+    "id": 13,
+    "parent_category_id": null,
+    "name": "Fundusze Europejskie"
+  }
+]

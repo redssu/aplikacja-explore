@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Warsztaty"
+  },
+  {
+    "id": 2,
+    "name": "Targi"
+  },
+  {
+    "id": 3,
+    "name": "Pikniki"
+  },
+  {
+    "id": 4,
+    "name": "Kongresy"
+  },
+  {
+    "id": 5,
+    "name": "Koncerty"
+  },
+  {
+    "id": 6,
+    "name": "Spektakle"
+  },
+  {
+    "id": 7,
+    "name": "Wystawy"
+  },
+  {
+    "id": 8,
+    "name": "Konferencje"
+  },
+  {
+    "id": 9,
+    "name": "Rajdy"
+  }
+]
