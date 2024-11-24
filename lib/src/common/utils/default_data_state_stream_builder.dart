@@ -8,19 +8,21 @@ class DefaultDataStateStreamBuilder<T> extends StatelessWidget {
   const DefaultDataStateStreamBuilder({
     required this.dataStateStream,
     required this.builder,
+    this.loadingWidget,
     super.key,
   });
 
   final DataStateStream<T> dataStateStream;
   final DataBuilder<T> builder;
+  final Widget? loadingWidget;
 
   @override
   Widget build(BuildContext context) {
     return DataStateStreamBuilder(
       dataStateStream: dataStateStream,
       builder: (context, dataState) => switch (dataState) {
-        LoadingDataState() => const Center(child: CircularProgressIndicator()),
         ReceivedDataState(:final data) => builder(context, data),
+        LoadingDataState() => loadingWidget ?? const SizedBox(),
         DataState() => const SizedBox(),
       },
     );
