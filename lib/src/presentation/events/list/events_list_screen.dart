@@ -1,10 +1,11 @@
+import "package:aplikacja_explore/dependency_container.dart";
 import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/utils/default_data_state_stream_builder.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_app_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_bottom_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
-import "package:aplikacja_explore/src/data/sources/asset/event_asset_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/widgets/events_list.dart";
 import "package:aplikacja_explore/src/presentation/events/list/widgets/events_slider.dart";
 import "package:flutter/material.dart";
@@ -18,8 +19,10 @@ class EventsListScreen extends StatefulWidget {
 }
 
 class _EventsListScreenState extends State<EventsListScreen> {
-  final sliderEvents = EventAssetDataSource().getSlider();
-  final latestEvents = EventAssetDataSource().getLatest();
+  final eventDataSource = inject<EventDataSource>();
+
+  late final sliderEvents = eventDataSource.getSlider();
+  late final latestEvents = eventDataSource.getLatest();
 
   @override
   Widget build(BuildContext context) {

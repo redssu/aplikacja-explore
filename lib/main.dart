@@ -1,8 +1,11 @@
+import "package:aplikacja_explore/dependency_container.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_screen.dart";
 import "package:flutter/material.dart";
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+  setupDependencies();
 
   runApp(const MyApp());
 }
