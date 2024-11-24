@@ -12,9 +12,9 @@
       "longitude": 19.025391355141398
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
-    "dateTimeStart": "03.09.2024 18:00",
-    "dateTimeEnd": null,
-    "image": "assets/images/event-1",
+    "date_time_start": "2024-09-03 18:00",
+    "date_time_end": "2024-09-03 21:00",
+    "image": "assets/images/event-3.png",
     "category": {
       "id": 3,
       "parent_category_id": 1,
@@ -44,9 +44,9 @@
       "longitude": 19.01649763541123
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
-    "dateTimeStart": "23.09.2024 18:00",
-    "dateTimeEnd": "12.10.2024 15:00",
-    "image": "assets/images/event-2",
+    "date_time_start": "2024-09-23 18:00",
+    "date_time_end": "2024-10-12 15:00",
+    "image": "assets/images/event-4.png",
     "category": {
       "id": 2,
       "parent_category_id": 1,
@@ -76,9 +76,9 @@
       "longitude": 19.034243401171057
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
-    "dateTimeStart": "23.09.2024 18:00",
-    "dateTimeEnd": "12.10.2024 15:00",
-    "image": "assets/images/event-3",
+    "date_time_start": "2024-09-23 18:00",
+    "date_time_end": "2024-10-12 15:00",
+    "image": "assets/images/event-5.png",
     "category": {
       "id": 11,
       "parent_category_id": null,
@@ -93,7 +93,7 @@
     "is_free": true
   },
   {
-    "id": 1,
+    "id": 4,
     "title": "Gala muzyki filmowej",
     "subtitle": "Cerekwicka | Ziółko | Talarczyk | Sztor | Chór",
     "location": {
@@ -105,9 +105,9 @@
       "longitude": 19.045207197969457
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
-    "dateTimeStart": "12.10.2024 18:00",
-    "dateTimeEnd": null,
-    "image": "assets/images/event-4",
+    "date_time_start": "2024-10-12 18:00",
+    "date_time_end": "2024-10-12 21:00",
+    "image": "assets/images/event-6.png",
     "category": {
       "id": 3,
       "parent_category_id": 1,
@@ -122,7 +122,7 @@
     "is_free": true
   },
   {
-    "id": 1,
+    "id": 5,
     "title": "Gala muzyki filmowej",
     "subtitle": "Cerekwicka | Ziółko | Talarczyk | Sztor | Chór",
     "location": {
@@ -134,9 +134,9 @@
       "longitude": 19.045207197969457
     },
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
-    "dateTimeStart": "12.10.2024 18:00",
-    "dateTimeEnd": null,
-    "image": "assets/images/event-5",
+    "date_time_start": "2024-10-12 18:00",
+    "date_time_end": "2024-10-12 21:00",
+    "image": "assets/images/event-7.png",
     "category": {
       "id": 3,
       "parent_category_id": 1,
@@ -149,5 +149,63 @@
     "target_group": null,
     "website": "https://example.org/",
     "is_free": true
+  },
+  {
+    "id": 6,
+    "title": "Benefis artysty - Rafał Olbiński",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "location": {
+      "id": 4,
+      "place": "Zamek Królewski",
+      "address": "plac Zamkowy 4",
+      "city": "Warszawa",
+      "latitude": 52.248250664238924, 
+      "longitude": 21.013956280272794
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
+    "date_time_start": "2024-08-12 15:00",
+    "date_time_end": "2024-08-12 16:00",
+    "image": "assets/images/event-1.png",
+    "category": {
+      "id": 10,
+      "parent_category_id": null,
+      "name": "Turystyka"
+    },
+    "type": {
+      "id": 8,
+      "name": "Konferencje"
+    },
+    "target_group": null,
+    "website": "https://example.org/",
+    "is_free": true
+  },
+  {
+    "id": 7,
+    "title": "XXXIV Festiwal ARS Cameralis - Miłość",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "location": {
+      "id": 4,
+      "place": "Kinoteatr Rialto",
+      "address": "ul. Świętego Jana 24",
+      "city": "Katowice",
+      "latitude": 50.256575747502204, 
+      "longitude": 19.0210650400878
+    },
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
+    "date_time_start": "2024-08-12 18:00",
+    "date_time_end":  "2024-08-12 20:00",
+    "image": "assets/images/event-2.png",
+    "category": {
+      "id": 3,
+      "parent_category_id": 1,
+      "name": "Muzyka"
+    },
+    "type": {
+      "id": 5,
+      "name": "Koncerty"
+    },
+    "target_group": null,
+    "website": "https://example.org/",
+    "is_free": false
   }
 ]
