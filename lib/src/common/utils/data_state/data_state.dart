@@ -8,8 +8,6 @@ abstract class DataState<T> {
   static LoadingDataState<T> loading<T>() => LoadingDataState<T>();
   static DataState<T> received<T>(T data) => ReceivedDataState<T>(data);
   static DataState<T> error<T>(Object? error) => ErrorDataState<T>(error);
-
-  static const Type d = LoadingDataState;
 }
 
 typedef DataStateStream<T> = Stream<DataState<T>>;
