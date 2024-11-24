@@ -14,7 +14,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
     "dateTimeStart": "03.09.2024 18:00",
     "dateTimeEnd": null,
-    "image": "https://placehold.co/600x400/EEE/31343C",
+    "image": "assets/images/event-1",
     "category": {
       "id": 3,
       "parent_category_id": 1,
@@ -46,7 +46,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
     "dateTimeStart": "23.09.2024 18:00",
     "dateTimeEnd": "12.10.2024 15:00",
-    "image": "https://placehold.co/600x400/EEE/31343C",
+    "image": "assets/images/event-2",
     "category": {
       "id": 2,
       "parent_category_id": 1,
@@ -78,7 +78,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
     "dateTimeStart": "23.09.2024 18:00",
     "dateTimeEnd": "12.10.2024 15:00",
-    "image": "https://placehold.co/600x400/EEE/31343C",
+    "image": "assets/images/event-3",
     "category": {
       "id": 11,
       "parent_category_id": null,
@@ -107,7 +107,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
     "dateTimeStart": "12.10.2024 18:00",
     "dateTimeEnd": null,
-    "image": "https://placehold.co/600x400/EEE/31343C",
+    "image": "assets/images/event-4",
     "category": {
       "id": 3,
       "parent_category_id": 1,
@@ -136,7 +136,7 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at suscipit enim, id dignissim lectus. Phasellus quis volutpat dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tellus justo, aliquam quis sem nec, egestas porta elit. Pellentesque dapibus metus ac erat porta, vitae convallis tortor pellentesque. Aenean non posuere est, ac dapibus massa. Morbi consectetur tempor tellus eu ultricies. Nunc fermentum ligula vitae arcu convallis, non gravida justo condimentum. Etiam sodales sodales sem a accumsan. Sed eu metus diam. Integer convallis imperdiet lectus in vestibulum. Aliquam quis elit et arcu ullamcorper vehicula eu vitae nisi.\n\nPellentesque hendrerit nunc in tempus gravida. Nunc odio est, mollis eget blandit ultrices, blandit sed metus. Duis non blandit dui, vitae ultricies sapien. Maecenas dapibus pretium odio sit amet accumsan. Proin bibendum eros lectus, et eleifend ipsum iaculis et. Integer imperdiet vulputate magna sed aliquam. Praesent vel commodo enim, id ultricies quam. Phasellus ut tortor dignissim, rutrum urna non, faucibus dui. Duis non rutrum lacus, elementum dignissim orci. Vivamus ut pharetra massa. Nullam iaculis lectus a aliquam sagittis. Mauris at vestibulum est. Integer eu nulla maximus, malesuada mi in, fermentum libero. Donec pellentesque sagittis neque, vitae sagittis lorem congue sit amet.",
     "dateTimeStart": "12.10.2024 18:00",
     "dateTimeEnd": null,
-    "image": "https://placehold.co/600x400/EEE/31343C",
+    "image": "assets/images/event-5",
     "category": {
       "id": 3,
       "parent_category_id": 1,
