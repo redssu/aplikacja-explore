@@ -1,6 +1,7 @@
 import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/extensions/date_time_range_extension.dart";
+import "package:aplikacja_explore/src/common/utils/shimmer.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/presentation/events/list/widgets/favourite_button.dart";
@@ -12,6 +13,8 @@ class EventsListItem extends StatelessWidget {
     required this.event,
     super.key,
   });
+
+  static Widget shimmer() => const _EventsListItemShimmer();
 
   final EventModel event;
 
@@ -110,5 +113,30 @@ class EventsListItem extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _EventsListItemShimmer extends StatelessWidget {
+  const _EventsListItemShimmer();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: AppGrid.fullSize,
+      height: AppGrid.columns(2),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: const Color(0xFFFBF9F9).withOpacity(0.8),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.07),
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+      ),
+    ).shimmer();
   }
 }

@@ -12,7 +12,6 @@ import "package:aplikacja_explore/src/presentation/events/list/events_list_contr
 import "package:aplikacja_explore/src/presentation/events/list/widgets/events_list.dart";
 import "package:aplikacja_explore/src/presentation/events/list/widgets/events_slider.dart";
 import "package:flutter/material.dart";
-import "package:flutter_svg/svg.dart";
 
 class EventsListScreen extends StatefulWidget {
   const EventsListScreen({super.key});
@@ -79,6 +78,7 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                 // MARK: Slider wydarzeń
                 DefaultDataStateStreamBuilder(
                   dataStateStream: controller.sliderEvents,
+                  loadingWidget: EventsSlider.shimmer(),
                   builder: (context, sliderEvents) => EventsSlider(events: sliderEvents),
                 ),
                 //
@@ -87,6 +87,7 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                 EdgePadding.gridDefined(
                   child: DefaultDataStateStreamBuilder(
                     dataStateStream: controller.eventsList,
+                    loadingWidget: EventsList.shimmer(),
                     builder: (context, latestEvents) => EventsList(events: latestEvents),
                   ),
                 ),

@@ -9,6 +9,8 @@ class EventsList extends StatelessWidget {
     super.key,
   });
 
+  static Widget shimmer() => const _EventsListShimmer();
+
   final List<EventModel> events;
 
   @override
@@ -19,6 +21,21 @@ class EventsList extends StatelessWidget {
       separatorBuilder: (_, __) => const VSpace(10),
       itemCount: events.length,
       itemBuilder: (context, index) => EventsListItem(event: events[index]),
+    );
+  }
+}
+
+class _EventsListShimmer extends StatelessWidget {
+  const _EventsListShimmer();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      separatorBuilder: (_, __) => const VSpace(10),
+      itemCount: 5,
+      itemBuilder: (_, __) => EventsListItem.shimmer(),
     );
   }
 }

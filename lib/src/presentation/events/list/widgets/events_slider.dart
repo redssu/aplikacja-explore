@@ -10,6 +10,8 @@ class EventsSlider extends StatelessWidget {
     super.key,
   });
 
+  static Widget shimmer() => const _EventsSliderShimmer();
+
   final List<EventModel> events;
 
   @override
@@ -22,6 +24,27 @@ class EventsSlider extends StatelessWidget {
             for (var index = 0; index < events.length; index++) ...[
               if (index != 0) const HSpace(10),
               EventsSliderItem(event: events[index]),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _EventsSliderShimmer extends StatelessWidget {
+  const _EventsSliderShimmer();
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: EdgePadding.gridDefined(
+        child: Row(
+          children: [
+            for (var index = 0; index < 5; index++) ...[
+              if (index != 0) const HSpace(10),
+              EventsSliderItem.shimmer(),
             ],
           ],
         ),
