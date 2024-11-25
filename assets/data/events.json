@@ -31,6 +31,8 @@
       "name": "Dla Seniora"
     },
     "website": "https://example.org/",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
     "is_free": true
   },
   {
@@ -65,6 +67,8 @@
       "name": "Dla dzieci"
     },
     "website": "https://example.org/",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
     "is_free": true
   },
   {
@@ -96,6 +100,8 @@
     },
     "target_group": null,
     "website": "https://example.org/",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
     "is_free": true
   },
   {
@@ -127,6 +133,8 @@
     },
     "target_group": null,
     "website": "https://example.org/",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
     "is_free": true
   },
   {
@@ -158,6 +166,8 @@
     },
     "target_group": null,
     "website": "https://example.org/",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
     "is_free": true
   },
   {
@@ -189,6 +199,8 @@
     },
     "target_group": null,
     "website": "https://example.org/",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
     "is_free": true
   },
   {
@@ -220,6 +232,8 @@
     },
     "target_group": null,
     "website": "https://example.org/",
+    "facebook": "https://facebook.com/",
+    "instagram": "https://instagram.com/",
     "is_free": false
   }
 ]

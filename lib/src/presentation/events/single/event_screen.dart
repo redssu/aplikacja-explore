@@ -147,9 +147,14 @@ class _EventScreenState extends ControlledState<EventScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: AppGrid.margin),
                   child: Row(
                     children: [
-                      SvgPicture.asset("assets/icons/logos/facebook.svg", width: 32),
-                      const HSpace(20),
-                      SvgPicture.asset("assets/icons/logos/instagram.svg", width: 32),
+                      if (widget.event.facebook != null) ...[
+                        SvgPicture.asset("assets/icons/facebook.svg", width: 32),
+                        const HSpace(20),
+                      ],
+                      if (widget.event.instagram != null) ...[
+                        SvgPicture.asset("assets/icons/instagram.svg", width: 32),
+                        const HSpace(20),
+                      ],
                     ],
                   ),
                 ),

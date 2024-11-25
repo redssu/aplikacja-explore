@@ -18,6 +18,8 @@ class EventModel {
   final EventTypeModel type;
   final EventTargetGroupModel? targetGroup;
   final String? website;
+  final String? facebook;
+  final String? instagram;
   final bool isFree;
 
   EventModel({
@@ -34,6 +36,8 @@ class EventModel {
     required this.type,
     this.targetGroup,
     this.website,
+    this.facebook,
+    this.instagram,
     required this.isFree,
   });
 
@@ -54,6 +58,8 @@ class EventModel {
           ? EventTargetGroupModel.fromJson(json["target_group"] as Map<String, dynamic>)
           : null,
       website: json["website"] as String?,
+      facebook: json["facebook"] as String?,
+      instagram: json["instagram"] as String?,
       isFree: json["is_free"] as bool,
     );
   }
