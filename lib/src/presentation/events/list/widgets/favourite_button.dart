@@ -1,3 +1,5 @@
+import "package:aplikacja_explore/src/common/utils/haptic_feedback_force.dart";
+import "package:aplikacja_explore/src/common/utils/interactive_builder.dart";
 import "package:flutter/material.dart";
 import "package:flutter_svg/svg.dart";
 
@@ -13,21 +15,25 @@ class FavouriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InteractiveBuilder(
       onTap: onTap,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(29),
-          color: const Color(0xFFEFEFEF),
-        ),
-        child: SizedBox(
-          width: 33,
-          height: 33,
-          child: Align(
-            child: SvgPicture.asset(
-              isFavourite ? "assets/icons/heart-full.svg" : "assets/icons/heart-outline.svg",
-              width: 20,
-            ),
+      hapticFeedbackForce: HapticFeedbackForce.light,
+      builder: (context, interactions, child) {
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(29),
+            color: interactions.isBeingTapped ? const Color(0xFFD7D7D7) : const Color(0xFFEFEFEF),
+          ),
+          child: child,
+        );
+      },
+      child: SizedBox(
+        width: 33,
+        height: 33,
+        child: Align(
+          child: SvgPicture.asset(
+            isFavourite ? "assets/icons/heart-full.svg" : "assets/icons/heart-outline.svg",
+            width: 20,
           ),
         ),
       ),
