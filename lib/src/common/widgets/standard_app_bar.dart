@@ -1,4 +1,5 @@
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
+import "package:aplikacja_explore/src/common/utils/interactive_builder.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
 import "package:flutter/material.dart";
@@ -47,6 +48,31 @@ class StandardAppBar extends StatelessWidget {
           const Spacer(),
           ...actions,
         ],
+      ),
+    );
+  }
+}
+
+class StandardAppBarAction extends StatelessWidget {
+  const StandardAppBarAction({
+    required this.icon,
+    this.onTap,
+    super.key,
+  });
+
+  final String icon;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InteractiveBuilder(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(10.5),
+        child: SvgPicture.asset(
+          icon,
+          width: 21,
+        ),
       ),
     );
   }

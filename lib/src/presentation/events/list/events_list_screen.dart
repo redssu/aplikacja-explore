@@ -1,5 +1,7 @@
 import "package:aplikacja_explore/dependency_container.dart";
 import "package:aplikacja_explore/src/common/consts/app_grid.dart";
+import "package:aplikacja_explore/src/common/consts/app_styles.dart";
+import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
 import "package:aplikacja_explore/src/common/utils/default_data_state_stream_builder.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
@@ -25,52 +27,73 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const StandardBottomBar(),
-      body: SafeArea(
-        bottom: false,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              StandardAppBar(
-                showBackButton: true,
-                title: "Wydarzenia",
-                actions: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.5),
-                    child: SvgPicture.asset(
-                      "assets/icons/search.svg",
-                      width: 21,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        bottomNavigationBar: const StandardBottomBar(),
+        body: SafeArea(
+          bottom: false,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                StandardAppBar(
+                  showBackButton: true,
+                  title: "Wydarzenia",
+                  actions: [
+                    StandardAppBarAction(
+                      icon: "assets/icons/search.svg",
+                      onTap: controller.onSearchButtonTapped,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.5),
-                    child: SvgPicture.asset(
-                      "assets/icons/filter.svg",
-                      width: 21,
+                    const StandardAppBarAction(
+                      icon: "assets/icons/filter.svg",
                     ),
-                  ),
-                ],
-              ),
-              //
-              const VSpace(35),
-              // MARK: Slider wydarzeń
-              DefaultDataStateStreamBuilder(
-                dataStateStream: controller.sliderEvents,
-                builder: (context, sliderEvents) => EventsSlider(events: sliderEvents),
-              ),
-              //
-              const VSpace(15),
-              // MARK: Lista wydarzeń
-              EdgePadding.gridDefined(
-                child: DefaultDataStateStreamBuilder(
-                  dataStateStream: controller.latestEvents,
-                  builder: (context, latestEvents) => EventsList(events: latestEvents),
+                  ],
                 ),
-              ),
-              //
-              const VSpace(AppGrid.margin),
-            ],
+                //
+                const VSpace(15),
+                // MARK: Wyszukiwarka
+                ValueListenableBuilder(
+                  valueListenable: controller.isSearchBarVisible,
+                  builder: (context, isSearchBarVisible, _) {
+                    if (!isSearchBarVisible) {
+                      return const SizedBox();
+                    }
+
+                    return EdgePadding.gridDefined(
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 7.0),
+                        child: TextField(
+                          controller: controller.searchBarController,
+                          focusNode: controller.searchBarFocusNode,
+                          cursorColor: const Color(0xFF4D4C4C).withOpacity(0.9),
+                          cursorHeight: 19,
+                          style: AppTypography.searchBar,
+                          decoration: AppStyles.searchBar,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                //
+                const VSpace(10),
+                // MARK: Slider wydarzeń
+                DefaultDataStateStreamBuilder(
+                  dataStateStream: controller.sliderEvents,
+                  builder: (context, sliderEvents) => EventsSlider(events: sliderEvents),
+                ),
+                //
+                const VSpace(15),
+                // MARK: Lista wydarzeń
+                EdgePadding.gridDefined(
+                  child: DefaultDataStateStreamBuilder(
+                    dataStateStream: controller.eventsList,
+                    builder: (context, latestEvents) => EventsList(events: latestEvents),
+                  ),
+                ),
+                //
+                const VSpace(AppGrid.margin),
+              ],
+            ),
           ),
         ),
       ),

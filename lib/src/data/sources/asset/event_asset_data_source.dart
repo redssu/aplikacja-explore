@@ -54,8 +54,20 @@ class EventAssetDataSource implements EventDataSource {
   }
 
   @override
-  DataStateStream<List<EventModel>> search(String query) {
-    // TODO: implement search
-    throw UnimplementedError();
+  DataStateStream<List<EventModel>> search(String query) async* {
+    yield DataState.loading();
+
+    await Future.delayed(const Duration(seconds: 3));
+
+    final queryLowerCase = query.trim().toLowerCase();
+    final events = _events
+        .where(
+          (e) =>
+              e.title.toLowerCase().contains(queryLowerCase) ||
+              e.location.shortAddress.toLowerCase().contains(queryLowerCase),
+        )
+        .toList();
+
+    yield DataState.received(events);
   }
 }

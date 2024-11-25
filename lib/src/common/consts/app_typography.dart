@@ -17,6 +17,13 @@ class AppTypography {
     fontWeight: FontWeight.w500,
   );
 
+  static const TextStyle searchBar = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+    height: 19 / 16,
+  );
+
   /**
    * MARK: Event Card
    */
