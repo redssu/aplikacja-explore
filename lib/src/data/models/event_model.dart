@@ -13,6 +13,7 @@ class EventModel {
   final DateTime dateTimeStart;
   final DateTime dateTimeEnd;
   final String image;
+  final String thumbnail;
   final EventCategoryModel category;
   final EventTypeModel type;
   final EventTargetGroupModel? targetGroup;
@@ -28,6 +29,7 @@ class EventModel {
     required this.dateTimeStart,
     required this.dateTimeEnd,
     required this.image,
+    required this.thumbnail,
     required this.category,
     required this.type,
     this.targetGroup,
@@ -45,6 +47,7 @@ class EventModel {
       dateTimeStart: DateTime.parse(json["date_time_start"] as String),
       dateTimeEnd: DateTime.parse(json["date_time_end"] as String),
       image: json["image"] as String,
+      thumbnail: json["thumbnail"] as String,
       category: EventCategoryModel.fromJson(json["category"] as Map<String, dynamic>),
       type: EventTypeModel.fromJson(json["type"] as Map<String, dynamic>),
       targetGroup: json["target_group"] != null

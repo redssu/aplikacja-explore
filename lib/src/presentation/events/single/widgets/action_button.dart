@@ -1,7 +1,6 @@
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
 import "package:flutter/material.dart";
-import "package:flutter_svg/svg.dart";
 
 class ActionButton extends StatelessWidget {
   const ActionButton({

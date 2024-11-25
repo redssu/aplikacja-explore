@@ -6,7 +6,6 @@ import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_app_bar.dart";
-import "package:aplikacja_explore/src/common/widgets/standard_bottom_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/presentation/events/single/event_controller.dart";
@@ -71,10 +70,15 @@ class _EventScreenState extends ControlledState<EventScreen> {
                   ),
                 ),
                 const VSpace(14),
-                Image.asset(
-                  widget.event.image,
-                  height: AppGrid.fullSize - AppGrid.margin,
-                  fit: BoxFit.cover,
+                SizedBox(
+                  width: AppGrid.fullSize - AppGrid.margin,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(6),
+                    child: Image.asset(
+                      widget.event.image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 const VSpace(16),
                 Row(

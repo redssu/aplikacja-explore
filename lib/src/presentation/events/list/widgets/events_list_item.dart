@@ -47,7 +47,7 @@ class EventsListItem extends StatelessWidget {
                   bottomLeft: Radius.circular(10),
                 ),
                 child: Image.asset(
-                  event.image,
+                  event.thumbnail,
                   fit: BoxFit.cover,
                 ),
               ),
