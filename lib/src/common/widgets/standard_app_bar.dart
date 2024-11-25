@@ -1,6 +1,5 @@
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/utils/interactive_builder.dart";
-import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
 import "package:flutter/material.dart";
 import "package:flutter_svg/svg.dart";
@@ -25,30 +24,28 @@ class StandardAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EdgePadding.gridDefined(
-      child: Row(
-        children: [
-          if (showBackButton ?? Navigator.of(context).canPop()) ...[
-            GestureDetector(
-              onTap: () => _onBackButtonPressed(context),
-              child: SvgPicture.asset(
-                "assets/icons/left-arrow.svg",
-                width: 21,
-              ),
+    return Row(
+      children: [
+        if (showBackButton ?? Navigator.of(context).canPop()) ...[
+          GestureDetector(
+            onTap: () => _onBackButtonPressed(context),
+            child: SvgPicture.asset(
+              "assets/icons/left-arrow.svg",
+              width: 21,
             ),
-            const HSpace(19),
-          ],
-          if (title.isNotEmpty)
-            Text(
-              title,
-              style: AppTypography.appBarTitle.copyWith(
-                color: const Color(0xFF313130),
-              ),
-            ),
-          const Spacer(),
-          ...actions,
+          ),
+          const HSpace(19),
         ],
-      ),
+        if (title.isNotEmpty)
+          Text(
+            title,
+            style: AppTypography.appBarTitle.copyWith(
+              color: const Color(0xFF313130),
+            ),
+          ),
+        const Spacer(),
+        ...actions,
+      ],
     );
   }
 }

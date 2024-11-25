@@ -5,7 +5,8 @@
     "subtitle": "Cerekwicka | Ziółko | Talarczyk | Sztor | Chór",
     "location": {
       "id": 1,
-      "place": "Spodek",
+      "place": "Hala Widowiskowo-Sportowa Spodek",
+      "place_short": "Spodek",
       "address": "al. Korfantego 35",
       "city": "Katowice",
       "latitude": 50.266149085209676, 
@@ -38,6 +39,7 @@
     "location": {
       "id": 2,
       "place": "Miejski ośrodek Kultury",
+      "place_short": "Miejski ośrodek Kultury",
       "address": "ul. Grażyńskiego 47",
       "city": "Katowice",
       "latitude": 50.26911116258064, 
@@ -70,6 +72,7 @@
     "location": {
       "id": 3,
       "place": "Muzeum Śląskie",
+      "place_short": "Muzeum Śląskie",
       "address": "ul. Tadeusza Dobrowolskiego 1",
       "city": "Katowice",
       "latitude": 50.26355708853048, 
@@ -99,6 +102,7 @@
     "location": {
       "id": 4,
       "place": "Młodzieżowy Dom Kultury",
+      "place_short": "Młodzieżowy Dom Kultury",
       "address": "ul. 1 Maja 12",
       "city": "Bielsko-Biała",
       "latitude": 49.81923678190055,
@@ -128,6 +132,7 @@
     "location": {
       "id": 4,
       "place": "Młodzieżowy Dom Kultury",
+      "place_short": "Młodzieżowy Dom Kultury",
       "address": "ul. 1 Maja 12",
       "city": "Bielsko-Biała",
       "latitude": 49.81923678190055,
@@ -157,6 +162,7 @@
     "location": {
       "id": 4,
       "place": "Zamek Królewski",
+      "place_short": "Zamek Królewski",
       "address": "plac Zamkowy 4",
       "city": "Warszawa",
       "latitude": 52.248250664238924, 
@@ -186,6 +192,7 @@
     "location": {
       "id": 4,
       "place": "Kinoteatr Rialto",
+      "place_short": "Kinoteatr Rialto",
       "address": "ul. Świętego Jana 24",
       "city": "Katowice",
       "latitude": 50.256575747502204, 

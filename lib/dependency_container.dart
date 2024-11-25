@@ -3,6 +3,7 @@
 import "package:aplikacja_explore/src/data/sources/asset/event_asset_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_controller.dart";
+import "package:aplikacja_explore/src/presentation/events/single/event_controller.dart";
 
 class DependenciesContainer {
   final Map<Type, dynamic> _singletons = {};
@@ -53,6 +54,7 @@ void setupDependencies() {
    * Kontrolery
    */
   dependencyContainer.bindFactory<EventsListController>(EventsListController.new);
+  dependencyContainer.bindFactory<EventController>(EventController.new);
 }
 
 T inject<T>() => dependencyContainer.get<T>();

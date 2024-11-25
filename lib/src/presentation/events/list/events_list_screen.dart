@@ -35,18 +35,20 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                StandardAppBar(
-                  showBackButton: true,
-                  title: "Wydarzenia",
-                  actions: [
-                    StandardAppBarAction(
-                      icon: "assets/icons/search.svg",
-                      onTap: controller.onSearchButtonTapped,
-                    ),
-                    const StandardAppBarAction(
-                      icon: "assets/icons/filter.svg",
-                    ),
-                  ],
+                EdgePadding.gridDefined(
+                  child: StandardAppBar(
+                    showBackButton: true,
+                    title: "Wydarzenia",
+                    actions: [
+                      StandardAppBarAction(
+                        icon: "assets/icons/search.svg",
+                        onTap: controller.onSearchButtonTapped,
+                      ),
+                      const StandardAppBarAction(
+                        icon: "assets/icons/filter.svg",
+                      ),
+                    ],
+                  ),
                 ),
                 //
                 const VSpace(15),

@@ -19,7 +19,7 @@ class AppTypography {
 
   static const TextStyle searchBar = TextStyle(
     fontFamily: "Roboto",
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.normal,
     fontSize: 16,
     height: 19 / 16,
   );
@@ -37,15 +37,68 @@ class AppTypography {
 
   static const TextStyle eventCardAddress = TextStyle(
     fontFamily: "Roboto",
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.normal,
     fontSize: 12,
     height: 16 / 12,
   );
 
   static const TextStyle eventCardDate = TextStyle(
     fontFamily: "Roboto",
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.normal,
     fontSize: 12,
     height: 20 / 12,
+  );
+
+  /**
+   * MARK: Event Details
+   */
+  ///
+  static const TextStyle eventDetailsTitle = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.bold,
+    fontSize: 22,
+    height: 32 / 22,
+  );
+
+  static const TextStyle eventDetailsSubtitle = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.normal,
+    fontSize: 22,
+    height: 32 / 22,
+  );
+
+  static const TextStyle eventDetailsStartDate = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    height: 31 / 20,
+  );
+
+  static const TextStyle eventDetailsAddress = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
+    height: 18 / 12,
+  );
+
+  static const TextStyle eventDetailsDescription = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    height: 21 / 14,
+  );
+
+  static const TextStyle eventDetailsPriceInfo = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    height: 21 / 14,
+  );
+
+  static const TextStyle eventDetailsActionButton = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    height: 15 / 12,
   );
 }

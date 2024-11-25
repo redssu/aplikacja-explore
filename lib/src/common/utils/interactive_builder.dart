@@ -2,7 +2,6 @@ import "dart:async";
 
 import "package:aplikacja_explore/src/common/utils/haptic_feedback_force.dart";
 import "package:flutter/cupertino.dart";
-import "package:flutter/services.dart";
 
 typedef InteractionInfo = ({bool isBeingTapped, bool isLoading});
 
