@@ -5,6 +5,7 @@ import "package:aplikacja_explore/src/common/extensions/date_time_extension.dart
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
+import "package:aplikacja_explore/src/common/widgets/image_placeholder.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_app_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
@@ -77,6 +78,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
                     child: Image.asset(
                       widget.event.image,
                       fit: BoxFit.cover,
+                      errorBuilder: ImagePlaceholder.errorBuilder(height: 300),
                     ),
                   ),
                 ),

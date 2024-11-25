@@ -1,5 +1,6 @@
 import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/utils/shimmer.dart";
+import "package:aplikacja_explore/src/common/widgets/image_placeholder.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:flutter/material.dart";
 
@@ -25,6 +26,7 @@ class EventsSliderItem extends StatelessWidget {
             event.image,
             fit: BoxFit.cover,
             width: AppGrid.columns(5),
+            errorBuilder: ImagePlaceholder.errorBuilder(showText: false),
           ),
         ),
       ),

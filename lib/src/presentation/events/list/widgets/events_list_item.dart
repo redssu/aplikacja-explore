@@ -3,6 +3,7 @@ import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/extensions/date_time_range_extension.dart";
 import "package:aplikacja_explore/src/common/utils/shimmer.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
+import "package:aplikacja_explore/src/common/widgets/image_placeholder.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/presentation/events/list/widgets/favourite_button.dart";
 import "package:flutter/material.dart";
@@ -49,6 +50,7 @@ class EventsListItem extends StatelessWidget {
                 child: Image.asset(
                   event.thumbnail,
                   fit: BoxFit.cover,
+                  errorBuilder: ImagePlaceholder.errorBuilder(showText: false),
                 ),
               ),
             ),
