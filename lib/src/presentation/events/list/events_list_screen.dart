@@ -44,8 +44,9 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                         icon: "assets/icons/search.svg",
                         onTap: controller.onSearchButtonTapped,
                       ),
-                      const StandardAppBarAction(
+                      StandardAppBarAction(
                         icon: "assets/icons/filter.svg",
+                        onTap: controller.onFilterButtonTapped,
                       ),
                     ],
                   ),

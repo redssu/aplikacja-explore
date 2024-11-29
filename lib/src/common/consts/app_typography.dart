@@ -24,6 +24,13 @@ class AppTypography {
     height: 19 / 16,
   );
 
+  static const TextStyle FiltersListTileTitle = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.normal,
+    fontSize: 14,
+    height: 37 / 14,
+  );
+
   /**
    * MARK: Event Card
    */

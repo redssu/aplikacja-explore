@@ -1,8 +1,11 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 
 import "package:aplikacja_explore/src/data/sources/asset/event_asset_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/asset/event_category_asset_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/event_category_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_controller.dart";
+import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/single/event_controller.dart";
 
 class DependenciesContainer {
@@ -49,12 +52,14 @@ void setupDependencies() {
    * Źródła danych
    */
   dependencyContainer.bindLazySingleton<EventDataSource>(EventAssetDataSource.new);
+  dependencyContainer.bindLazySingleton<EventCategoryDataSource>(EventCategoryAssetDataSource.new);
 
   /**
    * Kontrolery
    */
   dependencyContainer.bindFactory<EventsListController>(EventsListController.new);
   dependencyContainer.bindFactory<EventController>(EventController.new);
+  dependencyContainer.bindFactory<FiltersController>(FiltersController.new);
 }
 
 T inject<T>() => dependencyContainer.get<T>();

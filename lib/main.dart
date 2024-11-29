@@ -1,8 +1,7 @@
 import "package:aplikacja_explore/dependency_container.dart";
-import "package:aplikacja_explore/src/common/utils/data_state/data_state.dart";
-import "package:aplikacja_explore/src/data/models/event_model.dart";
-import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
-import "package:aplikacja_explore/src/presentation/events/single/event_screen.dart";
+import "package:aplikacja_explore/src/common/utils/slider/app_value_indicator_slider_shape.dart";
+import "package:aplikacja_explore/src/common/utils/slider/full_width_rectangular_track_shape.dart";
+import "package:aplikacja_explore/src/presentation/events/list/events_list_screen.dart";
 import "package:flutter/material.dart";
 
 Future<void> main() async {
@@ -10,22 +9,13 @@ Future<void> main() async {
 
   setupDependencies();
 
-  final event = ((await inject<EventDataSource>().get(3).firstWhere((state) => state is ReceivedDataState<EventModel>))
-          as ReceivedDataState<EventModel>)
-      .data;
-
   runApp(
-    MyApp(event: event),
+    const MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({
-    required this.event,
-    super.key,
-  });
-
-  final EventModel event;
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +23,27 @@ class MyApp extends StatelessWidget {
       title: "Flutter Demo",
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFEFEFEF),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0066B1)),
         useMaterial3: true,
+        sliderTheme: SliderThemeData(
+          trackHeight: 3,
+          overlayShape: const RoundSliderOverlayShape(overlayRadius: 0),
+          activeTrackColor: const Color(0xFF0066B1),
+          inactiveTrackColor: const Color(0xFF000000).withOpacity(0.07),
+          trackShape: FullWidthRectangularTrackShape(),
+          thumbColor: const Color(0xFFFFFFFF),
+          showValueIndicator: ShowValueIndicator.always,
+          valueIndicatorShape: const AppValueIndicatorSliderShape(),
+          valueIndicatorColor: const Color(0xFF0DDEAE),
+          valueIndicatorTextStyle: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Roboto",
+            fontSize: 14,
+          ),
+        ),
       ),
-      home: EventScreen(
-        event: event,
-      ),
+      home: const EventsListScreen(),
     );
   }
 }

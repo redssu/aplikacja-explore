@@ -13,7 +13,6 @@ class EventAssetDataSource implements EventDataSource {
   }
 
   Future<void> _loadData() async {
-    // load data from assets .json file and fill _events
     final json = await rootBundle.loadString("assets/data/events.json");
 
     _events = List<EventModel>.from(
