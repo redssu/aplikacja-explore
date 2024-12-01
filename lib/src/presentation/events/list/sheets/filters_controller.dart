@@ -25,9 +25,9 @@ class FiltersController extends Controller<FiltersSheet> {
   final double distanceStep = 0.5;
   int get distanceSteps => ((maxDistance - minDistance) / distanceStep).ceil();
 
-  double get distance => _activeFilters.distance;
+  double get distance => _activeFilters.distance ?? defaultDistance;
 
-  final ActiveFiltersData _activeFilters = ActiveFiltersData();
+  late final ActiveFiltersData _activeFilters = widget.activeFilters ?? ActiveFiltersData();
 
   // TODO: Dynamiczne pobieranie wyników i prezentacja ilości
   int get resultsCount => 24;
@@ -215,7 +215,7 @@ class FiltersController extends Controller<FiltersSheet> {
     _activeFilters.eventCategories.clear();
     _activeFilters.eventTargetGroups.clear();
     _activeFilters.eventTypes.clear();
-    _activeFilters.distance = defaultDistance;
+    _activeFilters.distance = null;
 
     updateActiveFilters();
   }
@@ -241,12 +241,12 @@ class ActiveFiltersData {
   List<EventCategoryModel> eventCategories;
   List<EventTargetGroupModel> eventTargetGroups;
   List<EventTypeModel> eventTypes;
-  double distance;
+  double? distance;
 
   ActiveFiltersData({
     this.eventCategories = const [],
     this.eventTargetGroups = const [],
     this.eventTypes = const [],
-    this.distance = 50,
+    this.distance,
   });
 }

@@ -12,10 +12,15 @@ import "package:aplikacja_explore/src/presentation/events/list/sheets/widgets/fi
 import "package:flutter/material.dart";
 
 class FiltersSheet extends StatefulWidget {
-  const FiltersSheet({super.key});
+  const FiltersSheet({
+    this.activeFilters,
+    super.key,
+  });
 
-  static void open(BuildContext context) {
-    showModalBottomSheet(
+  final ActiveFiltersData? activeFilters;
+
+  static Future<ActiveFiltersData?> open(BuildContext context, {ActiveFiltersData? activeFilters}) async {
+    return showModalBottomSheet<ActiveFiltersData>(
       context: context,
       enableDrag: false,
       isScrollControlled: true,
@@ -27,7 +32,7 @@ class FiltersSheet extends StatefulWidget {
           top: Radius.circular(10),
         ),
       ),
-      builder: (_) => const FiltersSheet(),
+      builder: (_) => FiltersSheet(activeFilters: activeFilters),
     );
   }
 
