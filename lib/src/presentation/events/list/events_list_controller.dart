@@ -1,6 +1,6 @@
 import "package:aplikacja_explore/dependency_container.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
-import "package:aplikacja_explore/src/common/utils/data_state/data_state.dart";
+import "package:aplikacja_explore/src/common/utils/data_state/data_state_publisher.dart";
 import "package:aplikacja_explore/src/common/utils/debouncer.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
@@ -11,8 +11,8 @@ import "package:flutter/material.dart";
 class EventsListController extends Controller<EventsListScreen> {
   final eventDataSource = inject<EventDataSource>();
 
-  late final DataStateStream<List<EventModel>> sliderEvents = eventDataSource.getSlider();
-  late DataStateStream<List<EventModel>> eventsList = eventDataSource.getLatest();
+  late final DataStatePublisher<List<EventModel>> sliderEventsPublisher = eventDataSource.getSlider().publisher();
+  late DataStatePublisher<List<EventModel>> eventsListPublisher = eventDataSource.getLatest().publisher();
 
   final ValueNotifier<bool> isSearchBarVisible = ValueNotifier<bool>(false);
   final TextEditingController searchBarController = TextEditingController();
@@ -29,7 +29,7 @@ class EventsListController extends Controller<EventsListScreen> {
   }
 
   void _onSearchChanged() {
-    eventsList = eventDataSource.search(searchBarController.text);
+    eventsListPublisher = eventDataSource.search(searchBarController.text).publisher();
     notifyListeners();
   }
 

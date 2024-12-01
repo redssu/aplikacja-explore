@@ -3,7 +3,7 @@ import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/consts/app_styles.dart";
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
-import "package:aplikacja_explore/src/common/utils/default_data_state_stream_builder.dart";
+import "package:aplikacja_explore/src/common/utils/default_data_state_publisher_builder.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_app_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_bottom_bar.dart";
@@ -79,8 +79,8 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                 //
                 const VSpace(10),
                 // MARK: Slider wydarzeń
-                DefaultDataStateStreamBuilder(
-                  dataStateStream: controller.sliderEvents,
+                DefaultDataStatePublisherBuilder(
+                  dataStatePublisher: controller.sliderEventsPublisher,
                   loadingWidget: EventsSlider.shimmer(),
                   builder: (context, sliderEvents) => EventsSlider(events: sliderEvents),
                 ),
@@ -88,8 +88,8 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                 const VSpace(15),
                 // MARK: Lista wydarzeń
                 EdgePadding.gridDefined(
-                  child: DefaultDataStateStreamBuilder(
-                    dataStateStream: controller.eventsList,
+                  child: DefaultDataStatePublisherBuilder(
+                    dataStatePublisher: controller.eventsListPublisher,
                     loadingWidget: EventsList.shimmer(),
                     builder: (context, latestEvents) => EventsList(events: latestEvents),
                   ),
