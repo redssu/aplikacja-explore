@@ -12,7 +12,7 @@ class EventCategoryModel {
   factory EventCategoryModel.fromJson(Map<String, dynamic> json) {
     return EventCategoryModel(
       id: json["id"] as int,
-      parentCategoryId: json["parentCategoryId"] as int?,
+      parentCategoryId: json["parent_category_id"] as int?,
       name: json["name"] as String,
     );
   }
