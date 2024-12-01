@@ -14,27 +14,30 @@ class AppCheckbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: size,
-      height: size,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: value ? const Color(0xFF4D4C4C) : Colors.transparent,
-          border: Border.all(
-            color: const Color(0x1D3C3C3B),
+    return GestureDetector(
+      onTap: () => onChanged(!value),
+      child: SizedBox(
+        width: size,
+        height: size,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            border: Border.all(
+              color: const Color(0x1D3C3C3B),
+            ),
+            borderRadius: BorderRadius.circular(3),
           ),
-          borderRadius: BorderRadius.circular(3),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(3.0),
-          child: value
-              ? DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF0066B1),
-                    borderRadius: BorderRadius.circular(1),
-                  ),
-                )
-              : null,
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: value
+                ? DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF0066B1),
+                      borderRadius: BorderRadius.circular(1),
+                    ),
+                  )
+                : null,
+          ),
         ),
       ),
     );

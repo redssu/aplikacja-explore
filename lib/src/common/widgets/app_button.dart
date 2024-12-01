@@ -30,25 +30,28 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(26),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: 11,
-          bottom: 10,
-          left: 21,
-          right: 21,
+    return GestureDetector(
+      onTap: onTap,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(26),
         ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 16,
-            height: 20 / 16,
-            fontWeight: FontWeight.bold,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 11,
+            bottom: 10,
+            left: 21,
+            right: 21,
+          ),
+          child: Text(
+            text,
+            style: TextStyle(
+              color: textColor,
+              fontSize: 16,
+              height: 20 / 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
