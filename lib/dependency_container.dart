@@ -2,8 +2,12 @@
 
 import "package:aplikacja_explore/src/data/sources/asset/event_asset_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/asset/event_category_asset_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/asset/event_target_group_asset_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/asset/event_type_asset_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_category_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/event_target_group_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/event_type_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/single/event_controller.dart";
@@ -53,6 +57,8 @@ void setupDependencies() {
    */
   dependencyContainer.bindLazySingleton<EventDataSource>(EventAssetDataSource.new);
   dependencyContainer.bindLazySingleton<EventCategoryDataSource>(EventCategoryAssetDataSource.new);
+  dependencyContainer.bindLazySingleton<EventTargetGroupDataSource>(EventTargetGroupAssetDataSource.new);
+  dependencyContainer.bindLazySingleton<EventTypeDataSource>(EventTypeAssetDataSource.new);
 
   /**
    * Kontrolery

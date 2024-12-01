@@ -14,7 +14,7 @@ class EventCategoryAssetDataSource implements EventCategoryDataSource {
   }
 
   Future<void> _loadData() async {
-    final json = await rootBundle.loadString("assets/data/events.json");
+    final json = await rootBundle.loadString("assets/data/event_categories.json");
 
     _eventCategories = List<EventCategoryModel>.from(
       (jsonDecode(json) as List).map(
@@ -24,21 +24,25 @@ class EventCategoryAssetDataSource implements EventCategoryDataSource {
   }
 
   @override
-  DataStateStream<List<EventCategoryWithSubcategoriesDto>> getHierarchy() async* {
+  DataStateStream<List<EventCategoryModel>> getHierarchy() async* {
     yield DataState.loading();
 
-    await Future.delayed(const Duration(seconds: 1));
+    // await Future.delayed(const Duration(seconds: 1));
 
+    // Wspiera tylko jeden poziom podkategorii
     yield DataState.received(
-      _eventCategories
-          .where((element) => element.parentCategoryId == null)
-          .map(
-            (e) => EventCategoryWithSubcategoriesDto(
-              category: e,
-              subcategories: _eventCategories.where((element) => element.parentCategoryId == e.id).toList(),
-            ),
-          )
-          .toList(),
+      _eventCategories.where((e) => e.parentCategoryId == null).map((category) {
+        final subcategories = _eventCategories.where((e) => e.parentCategoryId == category.id).toList();
+
+        if (subcategories.isEmpty) {
+          return category;
+        }
+
+        return EventCategoryWithSubcategoriesDto.fromCategory(
+          category: category,
+          subcategories: subcategories,
+        );
+      }).toList(),
     );
   }
 }

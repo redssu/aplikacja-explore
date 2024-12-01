@@ -1,10 +1,12 @@
 import "package:aplikacja_explore/dependency_container.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
+import "package:aplikacja_explore/src/common/utils/default_data_state_publisher_builder.dart";
 import "package:aplikacja_explore/src/common/widgets/app_button.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
 import "package:aplikacja_explore/src/common/widgets/sheet_app_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
+import "package:aplikacja_explore/src/data/dtos/event_category_with_subcategories_dto.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/widgets/filters_list_tile.dart";
 import "package:flutter/material.dart";
@@ -55,209 +57,90 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                   title: "Filtry",
                 ),
                 const VSpace(24),
-                FiltersListTile(
-                  title: "Kultura",
-                  children: [
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Sztuki wizualne",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Muzyka",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Muzeum",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Teatr",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Kino",
-                      isSubtile: true,
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                ),
-                const FiltersListTile(
-                  title: "Oświata",
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                ),
-                const FiltersListTile(
-                  title: "Ochrona zdrowia",
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                ),
-                const FiltersListTile(
-                  title: "Sport",
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                ),
-                const FiltersListTile(
-                  title: "Turystyka",
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                ),
-                const FiltersListTile(
-                  title: "Gospodarka",
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                ),
-                const FiltersListTile(
-                  title: "Ekologia",
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                ),
-                const FiltersListTile(
-                  title: "Fundusze Europejskie",
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF0066B1).withOpacity(0.4),
-                ),
-                FiltersListTile(
-                  title: "Rodzaj wydarzenia",
-                  children: [
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Warsztaty",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Targi",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Pikniki",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Kongresy",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Koncery",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Spektakle",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Wystawy",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Konferencje",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Rajdy",
-                      isSubtile: true,
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF0066B1).withOpacity(0.4),
-                ),
-                FiltersListTile(
-                  title: "Według wieku",
-                  children: [
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Dla dzieci",
-                      isSubtile: true,
-                    ),
-                    Divider(
-                      height: 1,
-                      color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                    ),
-                    const FiltersListTile(
-                      title: "Dla Seniora",
-                      isSubtile: true,
-                    ),
-                  ],
-                ),
-                Divider(
-                  height: 1,
-                  color: const Color(0xFF0066B1).withOpacity(0.4),
+                DefaultDataStatePublisherBuilder(
+                  dataStatePublisher: controller.availableFiltersPublisher,
+                  builder: (context, availableFilters) {
+                    return Column(
+                      children: [
+                        for (final category in availableFilters.eventCategories) ...[
+                          Divider(
+                            height: 1,
+                            color: const Color(0xFF4D4C4C).withOpacity(0.07),
+                          ),
+                          FiltersListTile(
+                            title: category.name,
+                            isSelected: controller.isCategorySelected(category),
+                            onChanged: controller.onCategoryChanged(category),
+                            children: [
+                              if (category is EventCategoryWithSubcategoriesDto)
+                                for (final subcategory in category.subcategories) ...[
+                                  Divider(
+                                    height: 1,
+                                    color: const Color(0xFF4D4C4C).withOpacity(0.07),
+                                  ),
+                                  FiltersListTile(
+                                    title: subcategory.name,
+                                    isSubtile: true,
+                                    isSelected: controller.isCategorySelected(subcategory),
+                                    onChanged: controller.onCategoryChanged(subcategory),
+                                  ),
+                                ],
+                            ],
+                          ),
+                        ],
+                        Divider(
+                          height: 1,
+                          color: const Color(0xFF0066B1).withOpacity(0.4),
+                        ),
+                        FiltersListTile(
+                          title: "Rodzaj wydarzenia",
+                          isSelected: controller.areAllEventTypesSelected,
+                          onChanged: controller.onAllEventTypesTapped,
+                          children: [
+                            for (final eventType in availableFilters.eventTypes) ...[
+                              Divider(
+                                height: 1,
+                                color: const Color(0xFF4D4C4C).withOpacity(0.07),
+                              ),
+                              FiltersListTile(
+                                title: eventType.name,
+                                isSubtile: true,
+                                isSelected: controller.isEventTypeSelected(eventType),
+                                onChanged: controller.onEventTypeChanged(eventType),
+                              ),
+                            ],
+                          ],
+                        ),
+                        Divider(
+                          height: 1,
+                          color: const Color(0xFF0066B1).withOpacity(0.4),
+                        ),
+                        FiltersListTile(
+                          title: "Według wieku",
+                          isSelected: controller.areAllEventTargetGroupsSelected,
+                          onChanged: controller.onAllEventTargetGroupsTapped,
+                          children: [
+                            for (final eventTargetGroup in availableFilters.eventTargetGroups) ...[
+                              Divider(
+                                height: 1,
+                                color: const Color(0xFF4D4C4C).withOpacity(0.07),
+                              ),
+                              FiltersListTile(
+                                title: eventTargetGroup.name,
+                                isSubtile: true,
+                                isSelected: controller.isEventTargetGroupSelected(eventTargetGroup),
+                                onChanged: controller.onEventTargetGroupChanged(eventTargetGroup),
+                              ),
+                            ],
+                          ],
+                        ),
+                        Divider(
+                          height: 1,
+                          color: const Color(0xFF0066B1).withOpacity(0.4),
+                        ),
+                      ],
+                    );
+                  },
                 ),
                 const VSpace(45),
                 Text(
@@ -303,16 +186,13 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                   ],
                 ),
                 const VSpace(4),
-                ValueListenableBuilder(
-                  valueListenable: controller.distance,
-                  builder: (context, distance, _) => Slider(
-                    value: distance,
-                    onChanged: (distance) => controller.distance.value = distance,
-                    min: controller.minDistance,
-                    max: controller.maxDistance,
-                    divisions: controller.distanceSteps,
-                    label: "${distance.round()}km",
-                  ),
+                Slider(
+                  value: controller.distance,
+                  onChanged: controller.onDistanceChanged,
+                  min: controller.minDistance,
+                  max: controller.maxDistance,
+                  divisions: controller.distanceSteps,
+                  label: "${controller.distance.round()}km",
                 ),
                 const VSpace(73),
                 Divider(
@@ -320,14 +200,21 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                   color: const Color(0xFF4D4C4C).withOpacity(0.07),
                 ),
                 const VSpace(56),
-                const Row(
+                Row(
                   children: [
-                    AppButton.transparent(text: "Wyczyść"),
-                    Spacer(),
-                    AppButton.primary(text: "Pokaż wyniki (24)"),
-                    HSpace(20),
+                    AppButton.transparent(
+                      text: "Wyczyść",
+                      onTap: controller.onClearFiltersTapped,
+                    ),
+                    const Spacer(),
+                    AppButton.primary(
+                      text: "Pokaż wyniki (24)",
+                      onTap: controller.onShowResultsTapped,
+                    ),
+                    const HSpace(20),
                   ],
                 ),
+                const VSpace(47),
               ],
             ),
           ),

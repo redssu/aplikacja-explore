@@ -9,7 +9,7 @@ class FiltersListTile extends StatefulWidget {
     required this.title,
     this.isSubtile = false,
     this.isSelected = false,
-    this.onTap,
+    this.onChanged,
     this.children = const [],
     super.key,
   });
@@ -17,7 +17,7 @@ class FiltersListTile extends StatefulWidget {
   final String title;
   final bool isSubtile;
   final bool isSelected;
-  final void Function()? onTap;
+  final void Function()? onChanged;
 
   final List<Widget> children;
 
@@ -30,6 +30,7 @@ class _FiltersListTileState extends State<FiltersListTile> {
 
   void toggleExpansion() {
     if (widget.children.isEmpty) {
+      widget.onChanged?.call();
       return;
     }
 
@@ -74,7 +75,7 @@ class _FiltersListTileState extends State<FiltersListTile> {
               Align(
                 child: AppCheckbox(
                   value: widget.isSelected,
-                  onChanged: (_) => widget.onTap?.call(),
+                  onChanged: (_) => widget.onChanged?.call(),
                 ),
               ),
               const HSpace(22),
