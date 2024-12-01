@@ -29,11 +29,19 @@ class FiltersController extends Controller<FiltersSheet> {
 
   final ActiveFiltersData _activeFilters = ActiveFiltersData();
 
+  // TODO: Dynamiczne pobieranie wyników i prezentacja ilości
+  int get resultsCount => 24;
+
   @override
   void initState() {
     super.initState();
 
     availableFiltersPublisher = _loadAvailableFilters().publisher();
+  }
+
+  void updateActiveFilters() {
+    notifyListeners();
+    // TODO: Pobieranie wyników z debouncer'em
   }
 
   DataStateStream<AvailableFiltersData> _loadAvailableFilters() async* {
@@ -97,7 +105,7 @@ class FiltersController extends Controller<FiltersSheet> {
         _activeFilters.eventCategories.addAll(subcategories);
       }
 
-      notifyListeners();
+      updateActiveFilters();
       return;
     }
 
@@ -107,7 +115,7 @@ class FiltersController extends Controller<FiltersSheet> {
       _activeFilters.eventCategories.add(category);
     }
 
-    notifyListeners();
+    updateActiveFilters();
   }
 
   bool isEventTypeSelected(EventTypeModel eventType) {
@@ -125,7 +133,7 @@ class FiltersController extends Controller<FiltersSheet> {
       _activeFilters.eventTypes.add(eventType);
     }
 
-    notifyListeners();
+    updateActiveFilters();
   }
 
   bool get areAllEventTypesSelected {
@@ -151,7 +159,7 @@ class FiltersController extends Controller<FiltersSheet> {
       _activeFilters.eventTypes = List.from(availableFilters.eventTypes);
     }
 
-    notifyListeners();
+    updateActiveFilters();
   }
 
   bool isEventTargetGroupSelected(EventTargetGroupModel targetGroup) {
@@ -169,7 +177,7 @@ class FiltersController extends Controller<FiltersSheet> {
       _activeFilters.eventTargetGroups.add(targetGroup);
     }
 
-    notifyListeners();
+    updateActiveFilters();
   }
 
   bool get areAllEventTargetGroupsSelected {
@@ -194,13 +202,13 @@ class FiltersController extends Controller<FiltersSheet> {
       _activeFilters.eventTargetGroups.addAll(availableFilters.eventTargetGroups);
     }
 
-    notifyListeners();
+    updateActiveFilters();
   }
 
   void onDistanceChanged(double value) {
     _activeFilters.distance = value;
 
-    notifyListeners();
+    updateActiveFilters();
   }
 
   void onClearFiltersTapped() {
@@ -209,7 +217,7 @@ class FiltersController extends Controller<FiltersSheet> {
     _activeFilters.eventTypes.clear();
     _activeFilters.distance = defaultDistance;
 
-    notifyListeners();
+    updateActiveFilters();
   }
 
   void onShowResultsTapped() {

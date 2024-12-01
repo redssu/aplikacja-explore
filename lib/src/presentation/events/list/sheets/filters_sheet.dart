@@ -208,7 +208,7 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                     ),
                     const Spacer(),
                     AppButton.primary(
-                      text: "Pokaż wyniki (24)",
+                      text: "Pokaż wyniki (${controller.resultsCount})",
                       onTap: controller.onShowResultsTapped,
                     ),
                     const HSpace(20),
