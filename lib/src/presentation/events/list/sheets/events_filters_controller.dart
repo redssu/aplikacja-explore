@@ -7,6 +7,7 @@ import "package:aplikacja_explore/src/data/models/event_category_model.dart";
 import "package:aplikacja_explore/src/data/models/event_target_group_model.dart";
 import "package:aplikacja_explore/src/data/models/event_type_model.dart";
 import "package:aplikacja_explore/src/data/sources/event_category_data_source.dart";
+import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_target_group_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_type_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_sheet.dart";
@@ -239,11 +240,4 @@ class EventsAvailableFiltersData {
     required this.eventTargetGroups,
     required this.eventTypes,
   });
-}
-
-class EventsActiveFiltersData {
-  List<EventCategoryModel> eventCategories = [];
-  List<EventTargetGroupModel> eventTargetGroups = [];
-  List<EventTypeModel> eventTypes = [];
-  double? distance;
 }

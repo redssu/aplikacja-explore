@@ -5,7 +5,6 @@ import "package:aplikacja_explore/src/common/utils/debouncer.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_screen.dart";
-import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_sheet.dart";
 import "package:flutter/material.dart";
 
