@@ -6,16 +6,16 @@ import "package:aplikacja_explore/src/data/sources/event_target_group_data_sourc
 import "package:flutter/services.dart";
 
 class EventTargetGroupAssetDataSource implements EventTargetGroupDataSource {
-  List<EventTargetGroupModel> _eventTargetGroups = [];
+  late Future<List<EventTargetGroupModel>> _eventTargetGroupsFuture;
 
   EventTargetGroupAssetDataSource() {
-    _loadData();
+    _eventTargetGroupsFuture = _loadData();
   }
 
-  Future<void> _loadData() async {
+  Future<List<EventTargetGroupModel>> _loadData() async {
     final json = await rootBundle.loadString("assets/data/event_target_groups.json");
 
-    _eventTargetGroups = List<EventTargetGroupModel>.from(
+    return List<EventTargetGroupModel>.from(
       (jsonDecode(json) as List).map(
         (e) => EventTargetGroupModel.fromJson(e as Map<String, dynamic>),
       ),
@@ -28,6 +28,8 @@ class EventTargetGroupAssetDataSource implements EventTargetGroupDataSource {
 
     // await Future.delayed(const Duration(seconds: 3));
 
-    yield DataState.received(_eventTargetGroups);
+    final eventTargetGroups = await _eventTargetGroupsFuture;
+
+    yield DataState.received(eventTargetGroups);
   }
 }

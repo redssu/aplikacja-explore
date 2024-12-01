@@ -7,16 +7,16 @@ import "package:aplikacja_explore/src/data/sources/event_category_data_source.da
 import "package:flutter/services.dart";
 
 class EventCategoryAssetDataSource implements EventCategoryDataSource {
-  List<EventCategoryModel> _eventCategories = [];
+  late Future<List<EventCategoryModel>> _eventCategoriesFuture;
 
   EventCategoryAssetDataSource() {
-    _loadData();
+    _eventCategoriesFuture = _loadData();
   }
 
-  Future<void> _loadData() async {
+  Future<List<EventCategoryModel>> _loadData() async {
     final json = await rootBundle.loadString("assets/data/event_categories.json");
 
-    _eventCategories = List<EventCategoryModel>.from(
+    return List<EventCategoryModel>.from(
       (jsonDecode(json) as List).map(
         (e) => EventCategoryModel.fromJson(e as Map<String, dynamic>),
       ),
@@ -28,11 +28,12 @@ class EventCategoryAssetDataSource implements EventCategoryDataSource {
     yield DataState.loading();
 
     // await Future.delayed(const Duration(seconds: 1));
+    final eventCategories = await _eventCategoriesFuture;
 
     // Wspiera tylko jeden poziom podkategorii
     yield DataState.received(
-      _eventCategories.where((e) => e.parentCategoryId == null).map((category) {
-        final subcategories = _eventCategories.where((e) => e.parentCategoryId == category.id).toList();
+      eventCategories.where((e) => e.parentCategoryId == null).map((category) {
+        final subcategories = eventCategories.where((e) => e.parentCategoryId == category.id).toList();
 
         if (subcategories.isEmpty) {
           return category;

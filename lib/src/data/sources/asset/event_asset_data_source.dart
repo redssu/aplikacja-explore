@@ -6,16 +6,16 @@ import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:flutter/services.dart";
 
 class EventAssetDataSource implements EventDataSource {
-  List<EventModel> _events = [];
+  late Future<List<EventModel>> _eventsFuture;
 
   EventAssetDataSource() {
-    _loadData();
+    _eventsFuture = _loadData();
   }
 
-  Future<void> _loadData() async {
+  Future<List<EventModel>> _loadData() async {
     final json = await rootBundle.loadString("assets/data/events.json");
 
-    _events = List<EventModel>.from(
+    return List<EventModel>.from(
       (jsonDecode(json) as List).map(
         (e) => EventModel.fromJson(e as Map<String, dynamic>),
       ),
@@ -27,8 +27,9 @@ class EventAssetDataSource implements EventDataSource {
     yield DataState.loading();
 
     await Future.delayed(const Duration(seconds: 3));
+    final events = await _eventsFuture;
 
-    yield DataState.received(_events.firstWhere((e) => e.id == id));
+    yield DataState.received(events.firstWhere((e) => e.id == id));
   }
 
   @override
@@ -37,7 +38,7 @@ class EventAssetDataSource implements EventDataSource {
 
     await Future.delayed(const Duration(seconds: 3));
 
-    final events = List<EventModel>.from(_events);
+    final events = List<EventModel>.from(await _eventsFuture);
     events.sort((a, b) => b.dateTimeStart.compareTo(a.dateTimeStart));
 
     yield DataState.received(events);
@@ -48,8 +49,9 @@ class EventAssetDataSource implements EventDataSource {
     yield DataState.loading();
 
     await Future.delayed(const Duration(seconds: 3));
+    final events = await _eventsFuture;
 
-    yield DataState.received(_events.where((e) => [6, 7].contains(e.id)).toList());
+    yield DataState.received(events.where((e) => [6, 7].contains(e.id)).toList());
   }
 
   @override
@@ -57,9 +59,10 @@ class EventAssetDataSource implements EventDataSource {
     yield DataState.loading();
 
     await Future.delayed(const Duration(seconds: 3));
+    final events = await _eventsFuture;
 
     final queryLowerCase = query.trim().toLowerCase();
-    final events = _events
+    final filteredEvents = events
         .where(
           (e) =>
               e.title.toLowerCase().contains(queryLowerCase) ||
@@ -67,6 +70,6 @@ class EventAssetDataSource implements EventDataSource {
         )
         .toList();
 
-    yield DataState.received(events);
+    yield DataState.received(filteredEvents);
   }
 }
