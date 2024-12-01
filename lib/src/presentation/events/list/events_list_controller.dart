@@ -5,6 +5,7 @@ import "package:aplikacja_explore/src/common/utils/debouncer.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_screen.dart";
+import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_sheet.dart";
 import "package:flutter/material.dart";
 
@@ -18,6 +19,8 @@ class EventsListController extends Controller<EventsListScreen> {
   final TextEditingController searchBarController = TextEditingController();
   final FocusNode searchBarFocusNode = FocusNode();
   final Debouncer searchDebouncer = Debouncer(duration: const Duration(milliseconds: 500));
+
+  ActiveFiltersData? activeFiltersData; 
 
   @override
   void initState() {
@@ -47,7 +50,8 @@ class EventsListController extends Controller<EventsListScreen> {
     }
   }
 
-  void onFilterButtonTapped() {
-    FiltersSheet.open(context);
+  Future<void> onFilterButtonTapped() async {
+    activeFiltersData = await FiltersSheet.open(context, activeFilters: activeFiltersData);
+    notifyListeners();
   }
 }

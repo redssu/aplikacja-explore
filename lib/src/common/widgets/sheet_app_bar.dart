@@ -8,15 +8,19 @@ class SheetAppBar extends StatelessWidget {
     this.showCloseButton,
     this.title = "",
     this.actions = const [],
+    this.onPop,
     super.key,
   });
 
   final bool? showCloseButton;
   final String title;
   final List<Widget> actions;
+  final VoidCallback? onPop;
 
   void _onCloseButtonPressed(BuildContext context) {
-    if (Navigator.of(context).canPop()) {
+    if (onPop != null) {
+      onPop!();
+    } else if (Navigator.of(context).canPop()) {
       Navigator.of(context).pop();
     }
   }

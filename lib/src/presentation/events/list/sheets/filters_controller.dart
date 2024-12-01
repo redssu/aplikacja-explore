@@ -211,6 +211,10 @@ class FiltersController extends Controller<FiltersSheet> {
     updateActiveFilters();
   }
 
+  void onCloseButtonTapped() {
+    Navigator.of(context).pop(_activeFilters);
+  }
+
   void onClearFiltersTapped() {
     _activeFilters.eventCategories.clear();
     _activeFilters.eventTargetGroups.clear();

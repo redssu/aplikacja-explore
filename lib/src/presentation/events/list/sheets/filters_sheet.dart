@@ -57,7 +57,8 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const VSpace(27),
-                const SheetAppBar(
+                SheetAppBar(
+                  onPop: controller.onCloseButtonTapped,
                   showCloseButton: true,
                   title: "Filtry",
                 ),
