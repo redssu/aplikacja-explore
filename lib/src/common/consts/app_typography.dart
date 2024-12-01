@@ -24,7 +24,7 @@ class AppTypography {
     height: 19 / 16,
   );
 
-  static const TextStyle FiltersListTileTitle = TextStyle(
+  static const TextStyle eventsFiltersListTileTitle = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.normal,
     fontSize: 14,

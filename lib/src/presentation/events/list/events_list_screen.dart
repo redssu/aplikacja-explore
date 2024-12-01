@@ -79,11 +79,12 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                 //
                 const VSpace(10),
                 // MARK: Slider wydarzeń
-                DefaultDataStatePublisherBuilder(
-                  dataStatePublisher: controller.sliderEventsPublisher,
-                  loadingWidget: EventsSlider.shimmer(),
-                  builder: (context, sliderEvents) => EventsSlider(events: sliderEvents),
-                ),
+                if (controller.showSlider)
+                  DefaultDataStatePublisherBuilder(
+                    dataStatePublisher: controller.sliderEventsPublisher,
+                    loadingWidget: EventsSlider.shimmer(),
+                    builder: (context, sliderEvents) => EventsSlider(events: sliderEvents),
+                  ),
                 //
                 const VSpace(15),
                 // MARK: Lista wydarzeń

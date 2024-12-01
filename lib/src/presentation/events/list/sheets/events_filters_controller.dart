@@ -9,7 +9,7 @@ import "package:aplikacja_explore/src/data/models/event_type_model.dart";
 import "package:aplikacja_explore/src/data/sources/event_category_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_target_group_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_type_data_source.dart";
-import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_sheet.dart";
+import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_sheet.dart";
 import "package:flutter/material.dart";
 
 class FiltersController extends Controller<FiltersSheet> {
@@ -17,7 +17,7 @@ class FiltersController extends Controller<FiltersSheet> {
   final _eventTypeDataSource = inject<EventTypeDataSource>();
   final _eventTargetGroupDataSource = inject<EventTargetGroupDataSource>();
 
-  late final DataStatePublisher<AvailableFiltersData> availableFiltersPublisher;
+  late final DataStatePublisher<EventsAvailableFiltersData> availableFiltersPublisher;
 
   final double defaultDistance = 50;
   final double minDistance = 0;
@@ -27,7 +27,7 @@ class FiltersController extends Controller<FiltersSheet> {
 
   double get distance => _activeFilters.distance ?? defaultDistance;
 
-  late final ActiveFiltersData _activeFilters = widget.activeFilters ?? ActiveFiltersData();
+  late final EventsActiveFiltersData _activeFilters = widget.activeFilters ?? EventsActiveFiltersData();
 
   // TODO: Dynamiczne pobieranie wyników i prezentacja ilości
   int get resultsCount => 24;
@@ -44,7 +44,7 @@ class FiltersController extends Controller<FiltersSheet> {
     // TODO: Pobieranie wyników z debouncer'em
   }
 
-  DataStateStream<AvailableFiltersData> _loadAvailableFilters() async* {
+  DataStateStream<EventsAvailableFiltersData> _loadAvailableFilters() async* {
     yield DataState.loading();
 
     // TODO: Cache'owanie danych offline
@@ -73,7 +73,7 @@ class FiltersController extends Controller<FiltersSheet> {
     }
 
     yield DataState.received(
-      AvailableFiltersData(
+      EventsAvailableFiltersData(
         eventCategories: eventCategoriesDataState.data,
         eventTargetGroups: eventTargetGroupsDataState.data,
         eventTypes: eventTypesDataState.data,
@@ -137,21 +137,21 @@ class FiltersController extends Controller<FiltersSheet> {
   }
 
   bool get areAllEventTypesSelected {
-    if (availableFiltersPublisher.current is! ReceivedDataState<AvailableFiltersData>) {
+    if (availableFiltersPublisher.current is! ReceivedDataState<EventsAvailableFiltersData>) {
       return false;
     }
 
-    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<AvailableFiltersData>).data;
+    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<EventsAvailableFiltersData>).data;
 
     return _activeFilters.eventTypes.length == availableFilters.eventTypes.length;
   }
 
   Future<void> onAllEventTypesTapped() async {
-    if (availableFiltersPublisher.current is! ReceivedDataState<AvailableFiltersData>) {
+    if (availableFiltersPublisher.current is! ReceivedDataState<EventsAvailableFiltersData>) {
       return;
     }
 
-    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<AvailableFiltersData>).data;
+    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<EventsAvailableFiltersData>).data;
 
     if (_activeFilters.eventTypes.length == availableFilters.eventTypes.length) {
       _activeFilters.eventTypes.clear();
@@ -181,21 +181,21 @@ class FiltersController extends Controller<FiltersSheet> {
   }
 
   bool get areAllEventTargetGroupsSelected {
-    if (availableFiltersPublisher.current is! ReceivedDataState<AvailableFiltersData>) {
+    if (availableFiltersPublisher.current is! ReceivedDataState<EventsAvailableFiltersData>) {
       return false;
     }
 
-    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<AvailableFiltersData>).data;
+    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<EventsAvailableFiltersData>).data;
 
     return _activeFilters.eventTargetGroups.length == availableFilters.eventTargetGroups.length;
   }
 
   Future<void> onAllEventTargetGroupsTapped() async {
-    if (availableFiltersPublisher.current is! ReceivedDataState<AvailableFiltersData>) {
+    if (availableFiltersPublisher.current is! ReceivedDataState<EventsAvailableFiltersData>) {
       return;
     }
 
-    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<AvailableFiltersData>).data;
+    final availableFilters = (availableFiltersPublisher.current as ReceivedDataState<EventsAvailableFiltersData>).data;
 
     _activeFilters.eventTargetGroups.clear();
     if (_activeFilters.eventTargetGroups.length != availableFilters.eventTargetGroups.length) {
@@ -229,28 +229,21 @@ class FiltersController extends Controller<FiltersSheet> {
   }
 }
 
-class AvailableFiltersData {
+class EventsAvailableFiltersData {
   final List<EventCategoryModel> eventCategories;
   final List<EventTargetGroupModel> eventTargetGroups;
   final List<EventTypeModel> eventTypes;
 
-  AvailableFiltersData({
+  EventsAvailableFiltersData({
     required this.eventCategories,
     required this.eventTargetGroups,
     required this.eventTypes,
   });
 }
 
-class ActiveFiltersData {
-  List<EventCategoryModel> eventCategories;
-  List<EventTargetGroupModel> eventTargetGroups;
-  List<EventTypeModel> eventTypes;
+class EventsActiveFiltersData {
+  List<EventCategoryModel> eventCategories = [];
+  List<EventTargetGroupModel> eventTargetGroups = [];
+  List<EventTypeModel> eventTypes = [];
   double? distance;
-
-  ActiveFiltersData({
-    this.eventCategories = const [],
-    this.eventTargetGroups = const [],
-    this.eventTypes = const [],
-    this.distance,
-  });
 }

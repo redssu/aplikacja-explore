@@ -9,7 +9,7 @@ import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_target_group_data_source.dart";
 import "package:aplikacja_explore/src/data/sources/event_type_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_controller.dart";
-import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_controller.dart";
+import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/single/event_controller.dart";
 
 class DependenciesContainer {

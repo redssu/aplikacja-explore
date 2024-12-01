@@ -7,8 +7,8 @@ import "package:aplikacja_explore/src/common/widgets/h_space.dart";
 import "package:aplikacja_explore/src/common/widgets/sheet_app_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
 import "package:aplikacja_explore/src/data/dtos/event_category_with_subcategories_dto.dart";
-import "package:aplikacja_explore/src/presentation/events/list/sheets/filters_controller.dart";
-import "package:aplikacja_explore/src/presentation/events/list/sheets/widgets/filters_list_tile.dart";
+import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_controller.dart";
+import "package:aplikacja_explore/src/presentation/events/list/sheets/widgets/events_filters_list_tile.dart";
 import "package:flutter/material.dart";
 
 class FiltersSheet extends StatefulWidget {
@@ -17,10 +17,10 @@ class FiltersSheet extends StatefulWidget {
     super.key,
   });
 
-  final ActiveFiltersData? activeFilters;
+  final EventsActiveFiltersData? activeFilters;
 
-  static Future<ActiveFiltersData?> open(BuildContext context, {ActiveFiltersData? activeFilters}) async {
-    return showModalBottomSheet<ActiveFiltersData>(
+  static Future<EventsActiveFiltersData?> open(BuildContext context, {EventsActiveFiltersData? activeFilters}) async {
+    return showModalBottomSheet<EventsActiveFiltersData>(
       context: context,
       enableDrag: false,
       isScrollControlled: true,
@@ -73,7 +73,7 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                             height: 1,
                             color: const Color(0xFF4D4C4C).withOpacity(0.07),
                           ),
-                          FiltersListTile(
+                          EventsFiltersListTile(
                             title: category.name,
                             isSelected: controller.isCategorySelected(category),
                             onChanged: controller.onCategoryChanged(category),
@@ -84,7 +84,7 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                                     height: 1,
                                     color: const Color(0xFF4D4C4C).withOpacity(0.07),
                                   ),
-                                  FiltersListTile(
+                                  EventsFiltersListTile(
                                     title: subcategory.name,
                                     isSubtile: true,
                                     isSelected: controller.isCategorySelected(subcategory),
@@ -98,7 +98,7 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                           height: 1,
                           color: const Color(0xFF0066B1).withOpacity(0.4),
                         ),
-                        FiltersListTile(
+                        EventsFiltersListTile(
                           title: "Rodzaj wydarzenia",
                           isSelected: controller.areAllEventTypesSelected,
                           onChanged: controller.onAllEventTypesTapped,
@@ -108,7 +108,7 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                                 height: 1,
                                 color: const Color(0xFF4D4C4C).withOpacity(0.07),
                               ),
-                              FiltersListTile(
+                              EventsFiltersListTile(
                                 title: eventType.name,
                                 isSubtile: true,
                                 isSelected: controller.isEventTypeSelected(eventType),
@@ -121,7 +121,7 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                           height: 1,
                           color: const Color(0xFF0066B1).withOpacity(0.4),
                         ),
-                        FiltersListTile(
+                        EventsFiltersListTile(
                           title: "Według wieku",
                           isSelected: controller.areAllEventTargetGroupsSelected,
                           onChanged: controller.onAllEventTargetGroupsTapped,
@@ -131,7 +131,7 @@ class _FiltersSheetState extends ControlledState<FiltersSheet> {
                                 height: 1,
                                 color: const Color(0xFF4D4C4C).withOpacity(0.07),
                               ),
-                              FiltersListTile(
+                              EventsFiltersListTile(
                                 title: eventTargetGroup.name,
                                 isSubtile: true,
                                 isSelected: controller.isEventTargetGroupSelected(eventTargetGroup),
