@@ -21,6 +21,7 @@ class EventsListController extends Controller<EventsListScreen> {
 
   EventsActiveFiltersData activeFiltersData = EventsActiveFiltersData();
 
+  List<int> favouriteEventsIds = [1];
   bool get hasFilters => activeFiltersData.hasFilters;
 
   @override

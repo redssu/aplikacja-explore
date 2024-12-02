@@ -96,6 +96,7 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                 //
                 const VSpace(15),
                 // MARK: Lista wydarzeń
+                // TODO: Dodawanie wydarzeń do ulubionych
                 EdgePadding.gridDefined(
                   child: DefaultDataStatePublisherBuilder(
                     dataStatePublisher: controller.eventsListPublisher,
@@ -107,7 +108,10 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                         );
                       }
 
-                      return EventsList(events: latestEvents);
+                      return EventsList(
+                        events: latestEvents,
+                        favouriteEventsIds: controller.favouriteEventsIds,
+                      );
                     },
                   ),
                 ),

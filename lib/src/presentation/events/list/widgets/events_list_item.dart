@@ -12,12 +12,14 @@ import "package:flutter_svg/svg.dart";
 class EventsListItem extends StatelessWidget {
   const EventsListItem({
     required this.event,
+    this.isFavourite = false,
     super.key,
   });
 
   static Widget shimmer() => const _EventsListItemShimmer();
 
   final EventModel event;
+  final bool isFavourite;
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +100,9 @@ class EventsListItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          const FavouriteButton(),
+                          FavouriteButton(
+                            isFavourite: isFavourite,
+                          ),
                           const Spacer(),
                           Padding(
                             padding: const EdgeInsets.only(right: 3.0),

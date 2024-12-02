@@ -6,12 +6,14 @@ import "package:flutter/material.dart";
 class EventsList extends StatelessWidget {
   const EventsList({
     required this.events,
+    this.favouriteEventsIds = const [],
     super.key,
   });
 
   static Widget shimmer() => const _EventsListShimmer();
 
   final List<EventModel> events;
+  final List<int> favouriteEventsIds;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class EventsList extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (_, __) => const VSpace(10),
       itemCount: events.length,
-      itemBuilder: (context, index) => EventsListItem(event: events[index]),
+      itemBuilder: (context, index) => EventsListItem(event: events[index], isFavourite: favouriteEventsIds.contains(events[index].id)),
     );
   }
 }
