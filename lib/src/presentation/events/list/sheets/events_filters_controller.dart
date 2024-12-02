@@ -13,7 +13,7 @@ import "package:aplikacja_explore/src/data/sources/event_type_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_sheet.dart";
 import "package:flutter/material.dart";
 
-class FiltersController extends Controller<FiltersSheet> {
+class EventsFiltersController extends Controller<EventsFiltersSheet> {
   final _eventCategoryDataSource = inject<EventCategoryDataSource>();
   final _eventTypeDataSource = inject<EventTypeDataSource>();
   final _eventTargetGroupDataSource = inject<EventTargetGroupDataSource>();

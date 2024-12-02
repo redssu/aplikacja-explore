@@ -12,8 +12,8 @@ import "package:aplikacja_explore/src/presentation/events/list/sheets/events_fil
 import "package:aplikacja_explore/src/presentation/events/list/sheets/widgets/events_filters_list_tile.dart";
 import "package:flutter/material.dart";
 
-class FiltersSheet extends StatefulWidget {
-  const FiltersSheet({
+class EventsFiltersSheet extends StatefulWidget {
+  const EventsFiltersSheet({
     this.activeFilters,
     super.key,
   });
@@ -33,17 +33,17 @@ class FiltersSheet extends StatefulWidget {
           top: Radius.circular(10),
         ),
       ),
-      builder: (_) => FiltersSheet(activeFilters: activeFilters),
+      builder: (_) => EventsFiltersSheet(activeFilters: activeFilters),
     );
   }
 
   @override
-  State<FiltersSheet> createState() => _FiltersSheetState();
+  State<EventsFiltersSheet> createState() => _EventsFiltersSheetState();
 }
 
-class _FiltersSheetState extends ControlledState<FiltersSheet> {
+class _EventsFiltersSheetState extends ControlledState<EventsFiltersSheet> {
   @override
-  final FiltersController controller = inject<FiltersController>();
+  final EventsFiltersController controller = inject<EventsFiltersController>();
 
   @override
   Widget build(BuildContext context) {

@@ -61,7 +61,7 @@ class EventsListController extends Controller<EventsListScreen> {
   }
 
   Future<void> onFilterButtonTapped() async {
-    activeFiltersData = (await FiltersSheet.open(context, activeFilters: activeFiltersData)) ?? activeFiltersData;
+    activeFiltersData = (await EventsFiltersSheet.open(context, activeFilters: activeFiltersData)) ?? activeFiltersData;
     getEventsWithSearchCriteria();
   }
 

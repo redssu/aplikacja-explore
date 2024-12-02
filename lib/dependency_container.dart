@@ -65,7 +65,7 @@ void setupDependencies() {
    */
   dependencyContainer.bindFactory<EventsListController>(EventsListController.new);
   dependencyContainer.bindFactory<EventController>(EventController.new);
-  dependencyContainer.bindFactory<FiltersController>(FiltersController.new);
+  dependencyContainer.bindFactory<EventsFiltersController>(EventsFiltersController.new);
 }
 
 T inject<T>() => dependencyContainer.get<T>();
