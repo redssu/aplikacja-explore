@@ -110,6 +110,7 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
 
                       return EventsList(
                         events: latestEvents,
+                        onEventTap: controller.onEventTapped,
                         favouriteEventsIds: controller.favouriteEventsIds,
                       );
                     },

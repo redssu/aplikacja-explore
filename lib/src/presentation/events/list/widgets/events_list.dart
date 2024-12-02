@@ -6,6 +6,7 @@ import "package:flutter/material.dart";
 class EventsList extends StatelessWidget {
   const EventsList({
     required this.events,
+    required this.onEventTap,
     this.favouriteEventsIds = const [],
     super.key,
   });
@@ -13,6 +14,7 @@ class EventsList extends StatelessWidget {
   static Widget shimmer() => const _EventsListShimmer();
 
   final List<EventModel> events;
+  final void Function(EventModel) onEventTap;
   final List<int> favouriteEventsIds;
 
   @override
@@ -22,7 +24,11 @@ class EventsList extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (_, __) => const VSpace(10),
       itemCount: events.length,
-      itemBuilder: (context, index) => EventsListItem(event: events[index], isFavourite: favouriteEventsIds.contains(events[index].id)),
+      itemBuilder: (context, index) => EventsListItem(
+        event: events[index],
+        onTap: () => onEventTap(events[index]),
+        isFavourite: favouriteEventsIds.contains(events[index].id),
+      ),
     );
   }
 }

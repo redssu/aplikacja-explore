@@ -6,6 +6,7 @@ import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/data/sources/event_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_screen.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_sheet.dart";
+import "package:aplikacja_explore/src/presentation/events/single/event_screen.dart";
 import "package:flutter/material.dart";
 
 class EventsListController extends Controller<EventsListScreen> {
@@ -62,5 +63,9 @@ class EventsListController extends Controller<EventsListScreen> {
   Future<void> onFilterButtonTapped() async {
     activeFiltersData = (await FiltersSheet.open(context, activeFilters: activeFiltersData)) ?? activeFiltersData;
     getEventsWithSearchCriteria();
+  }
+
+  void onEventTapped(EventModel event) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventScreen(event: event)));
   }
 }
