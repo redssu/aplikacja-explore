@@ -55,20 +55,40 @@ class EventAssetDataSource implements EventDataSource {
   }
 
   @override
-  DataStateStream<List<EventModel>> search(String query) async* {
+  DataStateStream<List<EventModel>> search(String? query, EventsActiveFiltersData? filters) async* {
     yield DataState.loading();
 
     await Future.delayed(const Duration(seconds: 3));
     final events = await _eventsFuture;
 
-    final queryLowerCase = query.trim().toLowerCase();
-    final filteredEvents = events
-        .where(
-          (e) =>
-              e.title.toLowerCase().contains(queryLowerCase) ||
-              e.location.shortAddress.toLowerCase().contains(queryLowerCase),
-        )
-        .toList();
+    final queryLowerCase = query?.trim().toLowerCase();
+    final filteredEvents = List<EventModel>.from(events);
+
+    if (queryLowerCase != null && queryLowerCase.isNotEmpty) {
+      filteredEvents.retainWhere((e) => e.title.toLowerCase().contains(queryLowerCase));
+    }
+
+    if (filters != null) {
+      if (filters.eventCategories.isNotEmpty) {
+        filteredEvents.retainWhere((e) => filters.eventCategories.any((ec) => e.category.id == ec.id));
+      }
+
+      if (filters.eventTargetGroups.isNotEmpty) {
+        filteredEvents.retainWhere(
+          (e) => e.targetGroup == null || filters.eventTargetGroups.any((etg) => e.targetGroup!.id == etg.id),
+        );
+      }
+
+      if (filters.eventTypes.isNotEmpty) {
+        filteredEvents.retainWhere((e) => filters.eventTypes.any((et) => e.type.id == et.id));
+      }
+
+      if (filters.distance != null) {
+        // TODO: Pobieranie lokalizacji użytkownika, obliczanie odległości między użytkownikiem a wydarzeniem
+        // TODO: Filtrowanie po odległości
+        // filteredEvents.retainWhere((e) => e.distance <= filters.distance!);
+      }
+    }
 
     yield DataState.received(filteredEvents);
   }

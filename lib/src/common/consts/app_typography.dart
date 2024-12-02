@@ -31,6 +31,13 @@ class AppTypography {
     height: 37 / 14,
   );
 
+  static const TextStyle eventsFiltersChipLabel = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.bold,
+    fontSize: 14,
+    height: 20 / 14,
+  );
+
   /**
    * MARK: Event Card
    */

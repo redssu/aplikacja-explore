@@ -9,6 +9,7 @@ import "package:aplikacja_explore/src/common/widgets/standard_app_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_bottom_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_controller.dart";
+import "package:aplikacja_explore/src/presentation/events/list/widgets/events_filters.dart";
 import "package:aplikacja_explore/src/presentation/events/list/widgets/events_list.dart";
 import "package:aplikacja_explore/src/presentation/events/list/widgets/events_slider.dart";
 import "package:flutter/material.dart";
@@ -34,6 +35,7 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
           bottom: false,
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 EdgePadding.gridDefined(
                   child: StandardAppBar(
@@ -79,11 +81,17 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                 //
                 const VSpace(10),
                 // MARK: Slider wydarzeń
-                if (controller.showSlider)
+                if (!controller.hasFilters)
                   DefaultDataStatePublisherBuilder(
                     dataStatePublisher: controller.sliderEventsPublisher,
                     loadingWidget: EventsSlider.shimmer(),
                     builder: (context, sliderEvents) => EventsSlider(events: sliderEvents),
+                  ),
+                // MARK: Filtry
+                if (controller.hasFilters)
+                  EventsFilters(
+                    filters: controller.activeFiltersData,
+                    onFiltersChanged: controller.onFiltersChanged,
                   ),
                 //
                 const VSpace(15),
@@ -92,7 +100,15 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                   child: DefaultDataStatePublisherBuilder(
                     dataStatePublisher: controller.eventsListPublisher,
                     loadingWidget: EventsList.shimmer(),
-                    builder: (context, latestEvents) => EventsList(events: latestEvents),
+                    builder: (context, latestEvents) {
+                      if (latestEvents.isEmpty && controller.hasFilters) {
+                        return const Center(
+                          child: Text("Brak wydarzeń o podanych kryteriach", textAlign: TextAlign.center),
+                        );
+                      }
+
+                      return EventsList(events: latestEvents);
+                    },
                   ),
                 ),
                 //

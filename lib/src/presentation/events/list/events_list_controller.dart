@@ -19,9 +19,9 @@ class EventsListController extends Controller<EventsListScreen> {
   final FocusNode searchBarFocusNode = FocusNode();
   final Debouncer searchDebouncer = Debouncer(duration: const Duration(milliseconds: 500));
 
-  EventsActiveFiltersData? activeFiltersData;
+  EventsActiveFiltersData activeFiltersData = EventsActiveFiltersData();
 
-  bool get showSlider => activeFiltersData == null;
+  bool get hasFilters => activeFiltersData.hasFilters;
 
   @override
   void initState() {
@@ -32,10 +32,7 @@ class EventsListController extends Controller<EventsListScreen> {
     });
   }
 
-  void _onSearchChanged() {
-    eventsListPublisher = eventDataSource.search(searchBarController.text).publisher();
-    notifyListeners();
-  }
+  void _onSearchChanged() => getEventsWithSearchCriteria();
 
   void onSearchButtonTapped() {
     isSearchBarVisible.value = !isSearchBarVisible.value;
@@ -51,8 +48,18 @@ class EventsListController extends Controller<EventsListScreen> {
     }
   }
 
-  Future<void> onFilterButtonTapped() async {
-    activeFiltersData = await FiltersSheet.open(context, activeFilters: activeFiltersData);
+  void onFiltersChanged(EventsActiveFiltersData filters) {
+    activeFiltersData = filters;
+    getEventsWithSearchCriteria();
+  }
+
+  void getEventsWithSearchCriteria() {
+    eventsListPublisher = eventDataSource.search(searchBarController.text, activeFiltersData).publisher();
     notifyListeners();
+  }
+
+  Future<void> onFilterButtonTapped() async {
+    activeFiltersData = (await FiltersSheet.open(context, activeFilters: activeFiltersData)) ?? activeFiltersData;
+    getEventsWithSearchCriteria();
   }
 }

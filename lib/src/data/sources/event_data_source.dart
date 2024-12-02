@@ -11,7 +11,7 @@ abstract class EventDataSource {
 
   DataStateStream<List<EventModel>> getSlider();
 
-  DataStateStream<List<EventModel>> search(String query);
+  DataStateStream<List<EventModel>> search(String? query, EventsActiveFiltersData? filters);
 }
 
 class EventsActiveFiltersData {
@@ -19,4 +19,20 @@ class EventsActiveFiltersData {
   List<EventTargetGroupModel> eventTargetGroups = [];
   List<EventTypeModel> eventTypes = [];
   double? distance;
+
+  bool get hasFilters =>
+      eventCategories.isNotEmpty || eventTargetGroups.isNotEmpty || eventTypes.isNotEmpty || distance != null;
+
+  EventsActiveFiltersData copyWith({
+    List<EventCategoryModel>? eventCategories,
+    List<EventTargetGroupModel>? eventTargetGroups,
+    List<EventTypeModel>? eventTypes,
+    double? distance,
+  }) {
+    return EventsActiveFiltersData()
+      ..eventCategories = eventCategories ?? this.eventCategories
+      ..eventTargetGroups = eventTargetGroups ?? this.eventTargetGroups
+      ..eventTypes = eventTypes ?? this.eventTypes
+      ..distance = distance ?? this.distance;
+  }
 }
