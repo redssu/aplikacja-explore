@@ -1,7 +1,7 @@
-import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/extensions/date_time_range_extension.dart";
 import "package:aplikacja_explore/src/common/utils/shimmer.dart";
+import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
 import "package:aplikacja_explore/src/common/widgets/image_placeholder.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
@@ -28,8 +28,8 @@ class EventsListItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        width: AppGrid.fullSize,
-        height: AppGrid.columns(2),
+        width: AppGrid.of(context).fullSize,
+        height: AppGrid.of(context).columns(2),
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -46,8 +46,8 @@ class EventsListItem extends StatelessWidget {
             children: [
               // MARK: Obraz
               SizedBox(
-                width: AppGrid.columns(2),
-                height: AppGrid.columns(2),
+                width: AppGrid.of(context).columns(2),
+                height: AppGrid.of(context).columns(2),
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
@@ -100,7 +100,7 @@ class EventsListItem extends StatelessWidget {
                       const HSpace.gutter(),
                       // MARK: Akcje
                       SizedBox(
-                        width: AppGrid.columns(1),
+                        width: AppGrid.of(context).columns(1),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -133,8 +133,8 @@ class _EventsListItemShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: AppGrid.fullSize,
-      height: AppGrid.columns(2),
+      width: AppGrid.of(context).fullSize,
+      height: AppGrid.of(context).columns(2),
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),

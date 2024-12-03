@@ -1,9 +1,9 @@
 import "package:aplikacja_explore/dependency_container.dart";
-import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/consts/app_styles.dart";
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
 import "package:aplikacja_explore/src/common/utils/default_data_state_publisher_builder.dart";
+import "package:aplikacja_explore/src/common/consts/app_grid.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_app_bar.dart";
 import "package:aplikacja_explore/src/common/widgets/standard_bottom_bar.dart";
