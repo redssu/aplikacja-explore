@@ -92,6 +92,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
                           "assets/icons/add-to-calendar.svg",
                         ),
                         label: "Dodaj do kalendarza",
+                        onTap: controller.onAddToCalendarButtonTapped,
                       ),
                     ),
                     Expanded(
@@ -150,11 +151,11 @@ class _EventScreenState extends ControlledState<EventScreen> {
                   child: Row(
                     children: [
                       if (widget.event.facebook != null) ...[
-                        SvgPicture.asset("assets/icons/facebook.svg", width: 32),
+                        SvgPicture.asset("assets/icons/logos/facebook.svg", width: 32),
                         const HSpace(20),
                       ],
                       if (widget.event.instagram != null) ...[
-                        SvgPicture.asset("assets/icons/instagram.svg", width: 32),
+                        SvgPicture.asset("assets/icons/logos/instagram.svg", width: 32),
                         const HSpace(20),
                       ],
                     ],

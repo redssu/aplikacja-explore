@@ -115,4 +115,36 @@ class AppTypography {
     fontWeight: FontWeight.bold,
     height: 15 / 12,
   );
+
+  /** 
+   * MARK: Add to Calendar Sheet
+   */
+  ///
+  static const TextStyle addToCalendarSheetTitle = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 22,
+    fontWeight: FontWeight.bold,
+    height: 37 / 22,
+  );
+
+  static const TextStyle addToCalendarSheetDescription = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 12,
+    fontWeight: FontWeight.w300,
+    height: 18 / 12,
+  );
+
+  static const TextStyle addToCalendarSheetSectionTitle = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: FontWeight.bold,
+    height: 37 / 14,
+  );
+
+  static const TextStyle addToCalendarSheetSectionItem = TextStyle(
+    fontFamily: "Roboto",
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    height: 37 / 14,
+  );
 }

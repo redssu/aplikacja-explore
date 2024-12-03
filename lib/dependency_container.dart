@@ -11,6 +11,7 @@ import "package:aplikacja_explore/src/data/sources/event_type_data_source.dart";
 import "package:aplikacja_explore/src/presentation/events/list/events_list_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/list/sheets/events_filters_controller.dart";
 import "package:aplikacja_explore/src/presentation/events/single/event_controller.dart";
+import "package:aplikacja_explore/src/presentation/events/single/sheets/event_add_to_calendar_controller.dart";
 
 class DependenciesContainer {
   final Map<Type, dynamic> _singletons = {};
@@ -66,6 +67,7 @@ void setupDependencies() {
   dependencyContainer.bindFactory<EventsListController>(EventsListController.new);
   dependencyContainer.bindFactory<EventController>(EventController.new);
   dependencyContainer.bindFactory<EventsFiltersController>(EventsFiltersController.new);
+  dependencyContainer.bindFactory<EventAddToCalendarController>(EventAddToCalendarController.new);
 }
 
 T inject<T>() => dependencyContainer.get<T>();
