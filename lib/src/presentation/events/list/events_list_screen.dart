@@ -36,6 +36,7 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const VSpace(12),
               EdgePadding.gridDefined(
                 child: StandardAppBar(
                   showBackButton: true,

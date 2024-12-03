@@ -36,6 +36,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            const VSpace(12),
             const EdgePadding.gridDefined(
               child: StandardAppBar(showBackButton: true),
             ),
