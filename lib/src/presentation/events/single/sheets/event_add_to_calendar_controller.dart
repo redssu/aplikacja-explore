@@ -10,6 +10,6 @@ class EventAddToCalendarController extends Controller<EventAddToCalendarSheet> {
   }
 
   void onAddButtonTapped() {
-    // TODO: Dodawanie wydarzenia do kalendarza
+    // TODO: Dodawanie wydarzenia do kalendarza systemowego
   }
 }

@@ -20,7 +20,6 @@ class EventAddToCalendarSheet extends StatefulWidget {
   static Future<void> open(BuildContext context, {required EventModel event}) async {
     return showModalBottomSheet<void>(
       context: context,
-      enableDrag: false,
       isScrollControlled: true,
       barrierColor: const Color(0xFFDCDCDC),
       backgroundColor: const Color(0xFFFAF9F9),
@@ -256,6 +255,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                                 height: 1,
                                 color: const Color(0xFF4D4C4C).withOpacity(0.07),
                               ),
+                              const VSpace(20),
                               const Spacer(),
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 47),
