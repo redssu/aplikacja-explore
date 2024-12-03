@@ -52,210 +52,190 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
       child: EdgePadding(
         left: 16,
         right: 26,
-        child: IntrinsicHeight(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: _padding,
-                child: Text(
-                  widget.event.title,
-                  style: AppTypography.addToCalendarSheetTitle.copyWith(
-                    color: const Color(0xFF313130),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // MARK: Informacje o wydarzeniu
+            Padding(
+              padding: _padding,
+              child: Text(
+                widget.event.title,
+                style: AppTypography.addToCalendarSheetTitle.copyWith(
+                  color: const Color(0xFF313130),
+                ),
+              ),
+            ),
+            const Divider(),
+            const VSpace(10),
+            Padding(
+              padding: _padding,
+              child: Text(
+                "${widget.event.location.place}\n"
+                "${widget.event.location.address}, ${widget.event.location.city}",
+                style: AppTypography.addToCalendarSheetDescription.copyWith(
+                  color: const Color(0xFF313130),
+                ),
+              ),
+            ),
+            //
+            const VSpace(13),
+            // MARK: Data wydarzenia
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Wydarzenie całodniowe",
+                    style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
+                      color: const Color(0xFF313130),
+                    ),
                   ),
-                ),
+                  // TODO: Switch
+                ],
               ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.4),
-              ),
-              const VSpace(10),
-              Padding(
-                padding: _padding,
-                child: Text(
-                  "${widget.event.location.place}\n"
-                  "${widget.event.location.address}, ${widget.event.location.city}",
-                  style: AppTypography.addToCalendarSheetDescription.copyWith(
-                    color: const Color(0xFF313130),
+            ),
+            const Divider(),
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Początek",
+                    style: AppTypography.addToCalendarSheetSectionItem.copyWith(
+                      color: const Color(0xFF313130),
+                    ),
                   ),
-                ),
+                  // TODO: DatePicker
+                ],
               ),
-              const VSpace(13),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Wydarzenie całodniowe",
-                      style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
+            ),
+            const Divider(),
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Koniec",
+                    style: AppTypography.addToCalendarSheetSectionItem.copyWith(
+                      color: const Color(0xFF313130),
                     ),
-                    // TODO: Switch
-                  ],
-                ),
+                  ),
+                  // TODO: DatePicker
+                ],
               ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.4),
-              ),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Początek",
-                      style: AppTypography.addToCalendarSheetSectionItem.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
+            ),
+            const Divider(),
+            //
+            const VSpace(17),
+            // MARK: Powtarzanie
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Powtarzaj",
+                    style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
+                      color: const Color(0xFF313130),
                     ),
-                    // TODO: DatePicker
-                  ],
-                ),
+                  ),
+                  // TODO: Select
+                ],
               ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.07),
-              ),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Koniec",
-                      style: AppTypography.addToCalendarSheetSectionItem.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
+            ),
+            const Divider(),
+            const VSpace(17),
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Kalendarz",
+                    style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
+                      color: const Color(0xFF313130),
                     ),
-                    // TODO: DatePicker
-                  ],
-                ),
+                  ),
+                  // TODO: Select
+                ],
               ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.07),
-              ),
-              const VSpace(17),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Powtarzaj",
-                      style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
+            ),
+            const Divider(),
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Zaproszeni",
+                    style: AppTypography.addToCalendarSheetSectionItem.copyWith(
+                      color: const Color(0xFF313130),
                     ),
-                    // TODO: Select
-                  ],
-                ),
+                  ),
+                  // TODO: DatePicker
+                ],
               ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.4),
-              ),
-              const VSpace(17),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Kalendarz",
-                      style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
+            ),
+            //
+            const Divider(),
+            // MARK: Powiadomienia
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Alert",
+                    style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
+                      color: const Color(0xFF313130),
                     ),
-                    // TODO: Select
-                  ],
-                ),
+                  ),
+                  // TODO: Select
+                ],
               ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.4),
-              ),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Zaproszeni",
-                      style: AppTypography.addToCalendarSheetSectionItem.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
+            ),
+            const Divider(),
+            Padding(
+              padding: _padding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "2. alert",
+                    style: AppTypography.addToCalendarSheetSectionItem.copyWith(
+                      color: const Color(0xFF313130),
                     ),
-                    // TODO: DatePicker
-                  ],
-                ),
+                  ),
+                  // TODO: Select
+                ],
               ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.07),
+            ),
+            const Divider(),
+            const VSpace(20),
+            //
+            const Spacer(),
+            // MARK: Akcje
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 47),
+              child: Row(
+                children: [
+                  AppButton.transparent(
+                    text: "Anuluj",
+                    onTap: controller.onCloseButtonTapped,
+                  ),
+                  const Spacer(),
+                  AppButton.primary(
+                    text: "Dodaj",
+                    onTap: controller.onAddButtonTapped,
+                  ),
+                ],
               ),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Alert",
-                      style: AppTypography.addToCalendarSheetSectionTitle.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
-                    ),
-                    // TODO: Select
-                  ],
-                ),
-              ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.4),
-              ),
-              Padding(
-                padding: _padding,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "2. alert",
-                      style: AppTypography.addToCalendarSheetSectionItem.copyWith(
-                        color: const Color(0xFF313130),
-                      ),
-                    ),
-                    // TODO: Select
-                  ],
-                ),
-              ),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.07),
-              ),
-              const VSpace(20),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 47),
-                child: Row(
-                  children: [
-                    AppButton.transparent(
-                      text: "Anuluj",
-                      onTap: controller.onCloseButtonTapped,
-                    ),
-                    const Spacer(),
-                    AppButton.primary(
-                      text: "Dodaj",
-                      onTap: controller.onAddButtonTapped,
-                    ),
-                  ],
-                ),
-              ),
-              const VSpace(47),
-            ],
-          ),
+            ),
+            const VSpace(47),
+          ],
         ),
       ),
     );

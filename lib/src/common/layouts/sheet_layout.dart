@@ -43,7 +43,9 @@ class SheetLayout extends StatelessWidget {
                       constraints: BoxConstraints(
                         minHeight: viewportConstraints.maxHeight,
                       ),
-                      child: child,
+                      child: IntrinsicHeight(
+                        child: child,
+                      ),
                     ),
                   );
                 },

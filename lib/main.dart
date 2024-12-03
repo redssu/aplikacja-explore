@@ -25,6 +25,11 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFEFEFEF),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0066B1)),
         useMaterial3: true,
+        dividerTheme: DividerThemeData(
+          color: const Color(0xFF000000).withOpacity(0.07),
+          space: 0,
+          thickness: 1,
+        ),
         sliderTheme: SliderThemeData(
           trackHeight: 3,
           overlayShape: const RoundSliderOverlayShape(overlayRadius: 0),

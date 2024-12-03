@@ -37,9 +37,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
         child: Column(
           children: [
             const EdgePadding.gridDefined(
-              child: StandardAppBar(
-                showBackButton: true,
-              ),
+              child: StandardAppBar(showBackButton: true),
             ),
             const VSpace(16),
             Expanded(
@@ -48,6 +46,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // MARK: Informacje o wydarzeniu
                       Text(
                         widget.event.title,
                         style: AppTypography.eventDetailsTitle.copyWith(
@@ -87,7 +86,9 @@ class _EventScreenState extends ControlledState<EventScreen> {
                           ),
                         ),
                       ),
+                      //
                       const VSpace(16),
+                      // MARK: Akcje
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -126,7 +127,9 @@ class _EventScreenState extends ControlledState<EventScreen> {
                           ),
                         ],
                       ),
+                      //
                       const VSpace(19),
+                      // MARK: Opis
                       Text(
                         widget.event.description,
                         style: AppTypography.eventDetailsDescription.copyWith(

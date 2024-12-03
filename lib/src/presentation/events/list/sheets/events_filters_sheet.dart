@@ -53,171 +53,158 @@ class _EventsFiltersSheetState extends ControlledState<EventsFiltersSheet> {
       child: EdgePadding(
         left: 17,
         right: 20,
-        child: IntrinsicHeight(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              DefaultDataStatePublisherBuilder(
-                dataStatePublisher: controller.availableFiltersPublisher,
-                builder: (context, availableFilters) {
-                  return Column(
-                    children: [
-                      for (final category in availableFilters.eventCategories) ...[
-                        Divider(
-                          height: 1,
-                          color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                        ),
-                        EventsFiltersListTile(
-                          title: category.name,
-                          isSelected: controller.isCategorySelected(category),
-                          onChanged: controller.onCategoryChanged(category),
-                          children: [
-                            if (category is EventCategoryWithSubcategoriesDto)
-                              for (final subcategory in category.subcategories) ...[
-                                Divider(
-                                  height: 1,
-                                  color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                                ),
-                                EventsFiltersListTile(
-                                  title: subcategory.name,
-                                  isSubtile: true,
-                                  isSelected: controller.isCategorySelected(subcategory),
-                                  onChanged: controller.onCategoryChanged(subcategory),
-                                ),
-                              ],
-                          ],
-                        ),
-                      ],
-                      Divider(
-                        height: 1,
-                        color: const Color(0xFF0066B1).withOpacity(0.4),
-                      ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DefaultDataStatePublisherBuilder(
+              dataStatePublisher: controller.availableFiltersPublisher,
+              builder: (context, availableFilters) {
+                return Column(
+                  children: [
+                    // MARK: Kategorie wydarzeń
+                    for (final category in availableFilters.eventCategories) ...[
+                      const Divider(),
                       EventsFiltersListTile(
-                        title: "Rodzaj wydarzenia",
-                        isSelected: controller.areAllEventTypesSelected,
-                        onChanged: controller.onAllEventTypesTapped,
+                        title: category.name,
+                        isSelected: controller.isCategorySelected(category),
+                        onChanged: controller.onCategoryChanged(category),
                         children: [
-                          for (final eventType in availableFilters.eventTypes) ...[
-                            Divider(
-                              height: 1,
-                              color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                            ),
-                            EventsFiltersListTile(
-                              title: eventType.name,
-                              isSubtile: true,
-                              isSelected: controller.isEventTypeSelected(eventType),
-                              onChanged: controller.onEventTypeChanged(eventType),
-                            ),
-                          ],
+                          if (category is EventCategoryWithSubcategoriesDto)
+                            for (final subcategory in category.subcategories) ...[
+                              Divider(
+                                height: 1,
+                                color: const Color(0xFF4D4C4C).withOpacity(0.07),
+                              ),
+                              EventsFiltersListTile(
+                                title: subcategory.name,
+                                isSubtile: true,
+                                isSelected: controller.isCategorySelected(subcategory),
+                                onChanged: controller.onCategoryChanged(subcategory),
+                              ),
+                            ],
                         ],
-                      ),
-                      Divider(
-                        height: 1,
-                        color: const Color(0xFF0066B1).withOpacity(0.4),
-                      ),
-                      EventsFiltersListTile(
-                        title: "Według wieku",
-                        isSelected: controller.areAllEventTargetGroupsSelected,
-                        onChanged: controller.onAllEventTargetGroupsTapped,
-                        children: [
-                          for (final eventTargetGroup in availableFilters.eventTargetGroups) ...[
-                            Divider(
-                              height: 1,
-                              color: const Color(0xFF4D4C4C).withOpacity(0.07),
-                            ),
-                            EventsFiltersListTile(
-                              title: eventTargetGroup.name,
-                              isSubtile: true,
-                              isSelected: controller.isEventTargetGroupSelected(eventTargetGroup),
-                              onChanged: controller.onEventTargetGroupChanged(eventTargetGroup),
-                            ),
-                          ],
-                        ],
-                      ),
-                      Divider(
-                        height: 1,
-                        color: const Color(0xFF0066B1).withOpacity(0.4),
                       ),
                     ],
-                  );
-                },
+                    //
+                    Divider(color: const Color(0xFF0066B1).withOpacity(0.4)),
+                    // MARK: Rodzaj wydarzenia
+                    EventsFiltersListTile(
+                      title: "Rodzaj wydarzenia",
+                      isSelected: controller.areAllEventTypesSelected,
+                      onChanged: controller.onAllEventTypesTapped,
+                      children: [
+                        for (final eventType in availableFilters.eventTypes) ...[
+                          Divider(
+                            height: 1,
+                            color: const Color(0xFF4D4C4C).withOpacity(0.07),
+                          ),
+                          EventsFiltersListTile(
+                            title: eventType.name,
+                            isSubtile: true,
+                            isSelected: controller.isEventTypeSelected(eventType),
+                            onChanged: controller.onEventTypeChanged(eventType),
+                          ),
+                        ],
+                      ],
+                    ),
+                    //
+                    Divider(color: const Color(0xFF0066B1).withOpacity(0.4)),
+                    // MARK: Grupy docelowe
+                    EventsFiltersListTile(
+                      title: "Według wieku",
+                      isSelected: controller.areAllEventTargetGroupsSelected,
+                      onChanged: controller.onAllEventTargetGroupsTapped,
+                      children: [
+                        for (final eventTargetGroup in availableFilters.eventTargetGroups) ...[
+                          const Divider(),
+                          EventsFiltersListTile(
+                            title: eventTargetGroup.name,
+                            isSubtile: true,
+                            isSelected: controller.isEventTargetGroupSelected(eventTargetGroup),
+                            onChanged: controller.onEventTargetGroupChanged(eventTargetGroup),
+                          ),
+                        ],
+                      ],
+                    ),
+                    //
+                    Divider(color: const Color(0xFF0066B1).withOpacity(0.4)),
+                  ],
+                );
+              },
+            ),
+            //
+            const VSpace(45),
+            // MARK: Odległość
+            Text(
+              "Szukaj w odległości od swojej lokalizacji",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontFamily: "Roboto",
+                fontWeight: FontWeight.normal,
+                color: const Color(0xFF3C3C3B).withOpacity(0.7),
+                fontSize: 12,
+                height: 20 / 12,
               ),
-              const VSpace(45),
-              Text(
-                "Szukaj w odległości od swojej lokalizacji",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontFamily: "Roboto",
-                  fontWeight: FontWeight.normal,
-                  color: const Color(0xFF3C3C3B).withOpacity(0.7),
-                  fontSize: 12,
-                  height: 20 / 12,
+            ),
+            const VSpace(8),
+            const Divider(),
+            const VSpace(38),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "${controller.minDistance}km",
+                  style: TextStyle(
+                    fontFamily: "Roboto",
+                    fontWeight: FontWeight.normal,
+                    color: const Color(0xFF3C3C3B).withOpacity(0.7),
+                    fontSize: 12,
+                    height: 20 / 12,
+                  ),
                 ),
-              ),
-              const VSpace(8),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.07),
-              ),
-              const VSpace(38),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "${controller.minDistance}km",
-                    style: TextStyle(
-                      fontFamily: "Roboto",
-                      fontWeight: FontWeight.normal,
-                      color: const Color(0xFF3C3C3B).withOpacity(0.7),
-                      fontSize: 12,
-                      height: 20 / 12,
-                    ),
+                Text(
+                  "${controller.maxDistance}km",
+                  style: TextStyle(
+                    fontFamily: "Roboto",
+                    fontWeight: FontWeight.normal,
+                    color: const Color(0xFF3C3C3B).withOpacity(0.7),
+                    fontSize: 12,
+                    height: 20 / 12,
                   ),
-                  Text(
-                    "${controller.maxDistance}km",
-                    style: TextStyle(
-                      fontFamily: "Roboto",
-                      fontWeight: FontWeight.normal,
-                      color: const Color(0xFF3C3C3B).withOpacity(0.7),
-                      fontSize: 12,
-                      height: 20 / 12,
-                    ),
-                  ),
-                ],
-              ),
-              const VSpace(4),
-              Slider(
-                value: controller.distance,
-                onChanged: controller.onDistanceChanged,
-                min: controller.minDistance,
-                max: controller.maxDistance,
-                divisions: controller.distanceSteps,
-                label: "${controller.distance.round()}km",
-              ),
-              const VSpace(73),
-              Divider(
-                height: 1,
-                color: const Color(0xFF4D4C4C).withOpacity(0.07),
-              ),
-              const VSpace(20),
-              const Spacer(),
-              Row(
-                children: [
-                  AppButton.transparent(
-                    text: "Wyczyść",
-                    onTap: controller.onClearFiltersTapped,
-                  ),
-                  const Spacer(),
-                  AppButton.primary(
-                    text: "Pokaż wyniki (${controller.resultsCount})",
-                    onTap: controller.onShowResultsTapped,
-                  ),
-                  const HSpace(20),
-                ],
-              ),
-              const VSpace(47),
-            ],
-          ),
+                ),
+              ],
+            ),
+            const VSpace(4),
+            Slider(
+              value: controller.distance,
+              onChanged: controller.onDistanceChanged,
+              min: controller.minDistance,
+              max: controller.maxDistance,
+              divisions: controller.distanceSteps,
+              label: "${controller.distance.round()}km",
+            ),
+            const VSpace(73),
+            const Divider(),
+            const VSpace(20),
+            //
+            const Spacer(),
+            // MARK: Akcje
+            Row(
+              children: [
+                AppButton.transparent(
+                  text: "Wyczyść",
+                  onTap: controller.onClearFiltersTapped,
+                ),
+                const Spacer(),
+                AppButton.primary(
+                  text: "Pokaż wyniki (${controller.resultsCount})",
+                  onTap: controller.onShowResultsTapped,
+                ),
+                const HSpace(20),
+              ],
+            ),
+            const VSpace(47),
+          ],
         ),
       ),
     );
