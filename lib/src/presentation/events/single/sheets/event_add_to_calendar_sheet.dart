@@ -4,6 +4,7 @@ import "package:aplikacja_explore/src/common/layouts/sheet_layout.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
 import "package:aplikacja_explore/src/common/widgets/app_button.dart";
 import "package:aplikacja_explore/src/common/widgets/edge_padding.dart";
+import "package:aplikacja_explore/src/common/widgets/select.dart";
 import "package:aplikacja_explore/src/common/widgets/v_space.dart";
 import "package:aplikacja_explore/src/data/models/event_model.dart";
 import "package:aplikacja_explore/src/presentation/events/single/sheets/event_add_to_calendar_controller.dart";
@@ -122,6 +123,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                     ),
                   ),
                   // TODO: DatePicker
+                  const Select(value: "18.11.24 r."),
                 ],
               ),
             ),
@@ -138,6 +140,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                     ),
                   ),
                   // TODO: DatePicker
+                  const Select(value: "19.11.24 r."),
                 ],
               ),
             ),
@@ -157,6 +160,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                     ),
                   ),
                   // TODO: Select
+                  const Select(value: "Nigdy"),
                 ],
               ),
             ),
@@ -174,6 +178,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                     ),
                   ),
                   // TODO: Select
+                  const Select(value: "Dom"),
                 ],
               ),
             ),
@@ -189,7 +194,8 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                       color: const Color(0xFF313130),
                     ),
                   ),
-                  // TODO: DatePicker
+                  // TODO: Select
+                  const Select(value: "Brak"),
                 ],
               ),
             ),
@@ -208,6 +214,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                     ),
                   ),
                   // TODO: Select
+                  const Select(value: "W dniu wydarzenia (9.00)"),
                 ],
               ),
             ),
@@ -224,6 +231,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                     ),
                   ),
                   // TODO: Select
+                  const Select(value: "Brak"),
                 ],
               ),
             ),

@@ -24,6 +24,16 @@ class AppTypography {
     height: 19 / 16,
   );
 
+  static const TextStyle selectValue = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+
+  /**
+   * MARK: Event Filters
+   */
+  ///
   static const TextStyle eventsFiltersListTileTitle = TextStyle(
     fontFamily: "Roboto",
     fontWeight: FontWeight.normal,
