@@ -25,6 +25,33 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFEFEFEF),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF0066B1)),
         useMaterial3: true,
+        switchTheme: SwitchThemeData(
+          thumbColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return const Color(0xFFFFFFFF);
+            }
+            return const Color(0xFF313130);
+          }),
+          trackColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return const Color(0xFF0DDEAE);
+            }
+            return Colors.transparent;
+          }),
+          trackOutlineWidth: WidgetStateProperty.all(1),
+          trackOutlineColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return Colors.transparent;
+            }
+            return const Color(0xFF313130);
+          }),
+          thumbIcon: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
+              return const Icon(Icons.check, size: 16, color: Color(0xFF0DDEAE));
+            }
+            return null;
+          }),
+        ),
         dividerTheme: DividerThemeData(
           color: const Color(0xFF000000).withOpacity(0.07),
           space: 0,

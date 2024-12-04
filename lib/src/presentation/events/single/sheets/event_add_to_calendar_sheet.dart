@@ -41,7 +41,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
   @override
   final EventAddToCalendarController controller = inject<EventAddToCalendarController>();
 
-  final EdgeInsets _padding = const EdgeInsets.symmetric(horizontal: 21);
+  final EdgeInsets _padding = const EdgeInsets.only(left: 21, right: 18);
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,21 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
                       color: const Color(0xFF313130),
                     ),
                   ),
-                  // TODO: Switch
+                  SizedBox(
+                    width: 40,
+                    child: FittedBox(
+                      fit: BoxFit.fill,
+                      child: ValueListenableBuilder(
+                        valueListenable: controller.isAllDayEvent,
+                        builder: (context, isAllDayEvent, _) {
+                          return Switch(
+                            value: isAllDayEvent,
+                            onChanged: (value) => controller.isAllDayEvent.value = value,
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

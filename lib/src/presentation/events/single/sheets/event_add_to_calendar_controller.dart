@@ -5,6 +5,8 @@ import "package:flutter/material.dart";
 class EventAddToCalendarController extends Controller<EventAddToCalendarSheet> {
   // TODO: Uzupełnianie danych o wydarzeniu
 
+  ValueNotifier<bool> isAllDayEvent = ValueNotifier<bool>(false);
+
   void onCloseButtonTapped() {
     Navigator.of(context).pop();
   }
