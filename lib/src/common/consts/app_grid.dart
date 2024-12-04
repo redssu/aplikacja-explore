@@ -28,10 +28,10 @@ class AppGrid {
   double columns(int columns) => _columns(columns, column.width);
 
   double portraitColumns(int columns) =>
-      _columns(columns, orientation == Orientation.portrait ? fullSize.width : fullSize.height);
+      _columns(columns, orientation == Orientation.portrait ? column.width : column.height);
 
   double landscapeColumns(int columns) =>
-      _columns(columns, orientation == Orientation.landscape ? fullSize.width : fullSize.height);
+      _columns(columns, orientation == Orientation.landscape ? column.width : column.height);
 
   double _columns(int columns, double columnWidth) => (columnWidth * columns) + (gutter * (columns - 1));
 }
