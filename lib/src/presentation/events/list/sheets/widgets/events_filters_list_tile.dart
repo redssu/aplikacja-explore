@@ -1,3 +1,4 @@
+import "package:aplikacja_explore/src/common/consts/app_styles.dart";
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/widgets/app_checkbox.dart";
 import "package:aplikacja_explore/src/common/widgets/h_space.dart";
@@ -41,49 +42,57 @@ class _EventsFiltersListTileState extends State<EventsFiltersListTile> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        IntrinsicHeight(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              GestureDetector(
-                onTap: toggleExpansion,
-                behavior: HitTestBehavior.translucent,
-                child: SizedBox(
-                  width: 46,
-                  child: widget.children.isNotEmpty
-                      ? Align(
-                          child: SvgPicture.asset(
-                            "assets/icons/chevron-down.svg",
-                            width: 12,
-                          ),
-                        )
-                      : null,
-                ),
-              ),
-              if (widget.isSubtile) const HSpace(19),
-              Expanded(
-                child: Text(
-                  widget.title,
-                  style: AppTypography.eventsFiltersListTileTitle.copyWith(
-                    fontWeight: widget.isSubtile ? FontWeight.normal : FontWeight.bold,
-                    color: widget.isSelected || isExpanded ? const Color(0xFF0066B1) : null,
+    return Semantics(
+      button: widget.children.isNotEmpty,
+      expanded: widget.children.isNotEmpty ? isExpanded : null,
+      label: widget.children.isNotEmpty ? "Rozwijana lista ${widget.title}" : null,
+      onTap: widget.children.isNotEmpty ? toggleExpansion : null,
+      child: Column(
+        children: [
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                GestureDetector(
+                  onTap: toggleExpansion,
+                  behavior: HitTestBehavior.translucent,
+                  excludeFromSemantics: true,
+                  child: SizedBox(
+                    width: 46,
+                    child: widget.children.isNotEmpty
+                        ? Align(
+                            child: SvgPicture.asset(
+                              "assets/icons/chevron-down.svg",
+                              excludeFromSemantics: true,
+                              width: 12,
+                            ),
+                          )
+                        : null,
                   ),
                 ),
-              ),
-              Align(
-                child: AppCheckbox(
-                  value: widget.isSelected,
-                  onChanged: (_) => widget.onChanged?.call(),
+                if (widget.isSubtile) const HSpace(19),
+                Expanded(
+                  child: Text(
+                    widget.title,
+                    style: AppTypography.eventsFiltersListTileTitle.copyWith(
+                      fontWeight: widget.isSubtile ? FontWeight.normal : FontWeight.bold,
+                      color: widget.isSelected || isExpanded ? AppStyles.primaryColor : null,
+                    ),
+                  ),
                 ),
-              ),
-              const HSpace(22),
-            ],
+                Align(
+                  child: AppCheckbox(
+                    value: widget.isSelected,
+                    onChanged: (_) => widget.onChanged?.call(),
+                  ),
+                ),
+                const HSpace(22),
+              ],
+            ),
           ),
-        ),
-        if (isExpanded) ...widget.children,
-      ],
+          if (isExpanded) ...widget.children,
+        ],
+      ),
     );
   }
 }

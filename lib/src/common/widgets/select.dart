@@ -13,20 +13,24 @@ class Select extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          value,
-          style: AppTypography.selectValue.copyWith(
-            color: const Color(0xFF3C3C3B).withOpacity(0.5),
+    return Semantics(
+      label: "Pole wyboru",
+      button: true,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            value,
+            style: AppTypography.selectValue.copyWith(
+              color: const Color(0xFF3C3C3B).withOpacity(0.5),
+            ),
           ),
-        ),
-        const HSpace(11),
-        SvgPicture.asset(
-          "assets/icons/chevron-up-chevron-down.svg",
-        ),
-      ],
+          const HSpace(11),
+          SvgPicture.asset(
+            "assets/icons/chevron-up-chevron-down.svg",
+          ),
+        ],
+      ),
     );
   }
 }

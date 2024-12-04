@@ -15,25 +15,30 @@ class FavouriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InteractiveBuilder(
+    return Semantics(
+      label: isFavourite ? "Usuń z ulubionych" : "Dodaj do ulubionych",
+      button: true,
       onTap: onTap,
-      hapticFeedbackForce: HapticFeedbackForce.light,
-      builder: (context, interactions, child) {
-        return DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(29),
-            color: interactions.isBeingTapped ? const Color(0xFFD7D7D7) : const Color(0xFFEFEFEF),
-          ),
-          child: child,
-        );
-      },
-      child: SizedBox(
-        width: 33,
-        height: 33,
-        child: Align(
-          child: SvgPicture.asset(
-            isFavourite ? "assets/icons/heart-full.svg" : "assets/icons/heart-outline.svg",
-            width: 20,
+      child: InteractiveBuilder(
+        onTap: onTap,
+        hapticFeedbackForce: HapticFeedbackForce.light,
+        builder: (context, interactions, child) {
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(29),
+              color: interactions.isBeingTapped ? const Color(0xFFD7D7D7) : const Color(0xFFEFEFEF),
+            ),
+            child: child,
+          );
+        },
+        child: SizedBox(
+          width: 33,
+          height: 33,
+          child: Align(
+            child: SvgPicture.asset(
+              isFavourite ? "assets/icons/heart-full.svg" : "assets/icons/heart-outline.svg",
+              width: 20,
+            ),
           ),
         ),
       ),

@@ -30,11 +30,16 @@ class SheetAppBar extends StatelessWidget {
     return Row(
       children: [
         if (showCloseButton ?? Navigator.of(context).canPop()) ...[
-          GestureDetector(
+          Semantics(
+            label: "Zamknij kartę",
+            button: true,
             onTap: () => _onCloseButtonPressed(context),
-            child: SvgPicture.asset(
-              "assets/icons/cross.svg",
-              width: 21,
+            child: GestureDetector(
+              onTap: () => _onCloseButtonPressed(context),
+              child: SvgPicture.asset(
+                "assets/icons/cross.svg",
+                width: 21,
+              ),
             ),
           ),
           const HSpace(23),

@@ -19,15 +19,19 @@ class EventsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      separatorBuilder: (_, __) => const VSpace(10),
-      itemCount: events.length,
-      itemBuilder: (context, index) => EventsListItem(
-        event: events[index],
-        onTap: () => onEventTap(events[index]),
-        isFavourite: favouriteEventsIds.contains(events[index].id),
+    return Semantics(
+      label: "Lista wydarzeń",
+      container: true,
+      child: ListView.separated(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        separatorBuilder: (_, __) => const VSpace(10),
+        itemCount: events.length,
+        itemBuilder: (context, index) => EventsListItem(
+          event: events[index],
+          onTap: () => onEventTap(events[index]),
+          isFavourite: favouriteEventsIds.contains(events[index].id),
+        ),
       ),
     );
   }

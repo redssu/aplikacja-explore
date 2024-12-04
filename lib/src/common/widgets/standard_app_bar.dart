@@ -27,11 +27,17 @@ class StandardAppBar extends StatelessWidget {
     return Row(
       children: [
         if (showBackButton ?? Navigator.of(context).canPop()) ...[
-          GestureDetector(
+          Semantics(
+            label: "Wróć",
+            button: true,
             onTap: () => _onBackButtonPressed(context),
-            child: SvgPicture.asset(
-              "assets/icons/left-arrow.svg",
-              width: 21,
+            child: GestureDetector(
+              onTap: () => _onBackButtonPressed(context),
+              child: SvgPicture.asset(
+                "assets/icons/left-arrow.svg",
+                width: 21,
+                excludeFromSemantics: true,
+              ),
             ),
           ),
           const HSpace(19),
@@ -53,22 +59,30 @@ class StandardAppBar extends StatelessWidget {
 class StandardAppBarAction extends StatelessWidget {
   const StandardAppBarAction({
     required this.icon,
+    this.semanticsLabel,
     this.onTap,
     super.key,
   });
 
   final String icon;
+  final String? semanticsLabel;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return InteractiveBuilder(
+    return Semantics(
+      label: semanticsLabel,
+      button: true,
       onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.all(10.5),
-        child: SvgPicture.asset(
-          icon,
-          width: 21,
+      child: InteractiveBuilder(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(10.5),
+          child: SvgPicture.asset(
+            icon,
+            excludeFromSemantics: true,
+            width: 21,
+          ),
         ),
       ),
     );

@@ -26,6 +26,7 @@ class EventsSliderItem extends StatelessWidget {
             event.image,
             fit: BoxFit.cover,
             width: AppGrid.of(context).portraitColumns(5),
+            semanticLabel: "Obraz wydarzenia: ${event.title}",
             errorBuilder: ImagePlaceholder.errorBuilder(showText: false),
           ),
         ),

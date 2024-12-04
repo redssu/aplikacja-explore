@@ -1,3 +1,4 @@
+import "package:aplikacja_explore/src/common/consts/app_styles.dart";
 import "package:flutter/material.dart";
 
 class AppCheckbox extends StatelessWidget {
@@ -14,29 +15,35 @@ class AppCheckbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Semantics(
+      checked: value,
+      button: true,
       onTap: () => onChanged(!value),
-      child: SizedBox(
-        width: size,
-        height: size,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            border: Border.all(
-              color: const Color(0x1D3C3C3B),
+      label: "Pole typu \"Checkbox\"",
+      child: GestureDetector(
+        onTap: () => onChanged(!value),
+        child: SizedBox(
+          width: size,
+          height: size,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              border: Border.all(
+                color: const Color(0x1D3C3C3B),
+              ),
+              borderRadius: BorderRadius.circular(3),
             ),
-            borderRadius: BorderRadius.circular(3),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(3.0),
-            child: value
-                ? DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF0066B1),
-                      borderRadius: BorderRadius.circular(1),
-                    ),
-                  )
-                : null,
+            child: Padding(
+              padding: const EdgeInsets.all(3.0),
+              child: value
+                  ? DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: AppStyles.primaryColor,
+                        borderRadius: BorderRadius.circular(1),
+                      ),
+                    )
+                  : null,
+            ),
           ),
         ),
       ),

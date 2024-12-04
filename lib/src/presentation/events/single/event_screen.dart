@@ -1,5 +1,6 @@
 import "package:aplikacja_explore/dependency_container.dart";
 import "package:aplikacja_explore/src/common/consts/app_grid.dart";
+import "package:aplikacja_explore/src/common/consts/app_styles.dart";
 import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/extensions/date_time_extension.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
@@ -48,31 +49,43 @@ class _EventScreenState extends ControlledState<EventScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // MARK: Informacje o wydarzeniu
-                      Text(
-                        widget.event.title,
-                        style: AppTypography.eventDetailsTitle.copyWith(
-                          color: const Color(0xFF313130),
+                      Semantics(
+                        label: "Tytuł wydarzenia",
+                        child: Text(
+                          widget.event.title,
+                          style: AppTypography.eventDetailsTitle.copyWith(
+                            color: const Color(0xFF313130),
+                          ),
                         ),
                       ),
-                      Text(
-                        widget.event.subtitle,
-                        style: AppTypography.eventDetailsSubtitle.copyWith(
-                          color: const Color(0xFF313130),
+                      Semantics(
+                        label: "Podtytuł wydarzenia",
+                        child: Text(
+                          widget.event.subtitle,
+                          style: AppTypography.eventDetailsSubtitle.copyWith(
+                            color: const Color(0xFF313130),
+                          ),
                         ),
                       ),
                       const VSpace(5),
-                      Text(
-                        "${widget.event.dateTimeStart.formattedDate} | g. ${widget.event.dateTimeStart.formattedTime}",
-                        style: AppTypography.eventDetailsStartDate.copyWith(
-                          color: const Color(0xFF0066B1),
+                      Semantics(
+                        label: "Data i godzina rozpoczęcia wydarzenia",
+                        child: Text(
+                          "${widget.event.dateTimeStart.formattedDate} | g. ${widget.event.dateTimeStart.formattedTime}",
+                          style: AppTypography.eventDetailsStartDate.copyWith(
+                            color: AppStyles.primaryColor,
+                          ),
                         ),
                       ),
                       const VSpace(6),
-                      Text(
-                        "${widget.event.location.place}\n"
-                        "${widget.event.location.address}, ${widget.event.location.city}",
-                        style: AppTypography.eventDetailsAddress.copyWith(
-                          color: const Color(0xFF313130),
+                      Semantics(
+                        label: "Lokalizacja wydarzenia",
+                        child: Text(
+                          "${widget.event.location.place}\n"
+                          "${widget.event.location.address}, ${widget.event.location.city}",
+                          style: AppTypography.eventDetailsAddress.copyWith(
+                            color: const Color(0xFF313130),
+                          ),
                         ),
                       ),
                       const VSpace(14),
@@ -82,6 +95,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
                           borderRadius: BorderRadius.circular(6),
                           child: Image.asset(
                             widget.event.image,
+                            semanticLabel: "Obraz wydarzenia",
                             fit: BoxFit.cover,
                             errorBuilder: ImagePlaceholder.errorBuilder(height: 300),
                           ),
@@ -123,7 +137,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
                               icon: SvgPicture.asset(
                                 "assets/icons/www.svg",
                               ),
-                              label: "Strona www",
+                              label: "Otwórz stronę WWW",
                             ),
                           ),
                         ],
@@ -131,10 +145,13 @@ class _EventScreenState extends ControlledState<EventScreen> {
                       //
                       const VSpace(19),
                       // MARK: Opis
-                      Text(
-                        widget.event.description,
-                        style: AppTypography.eventDetailsDescription.copyWith(
-                          color: const Color(0xFF313130),
+                      Semantics(
+                        label: "Opis wydarzenia",
+                        child: Text(
+                          widget.event.description,
+                          style: AppTypography.eventDetailsDescription.copyWith(
+                            color: const Color(0xFF313130),
+                          ),
                         ),
                       ),
                       const VSpace(25),
@@ -143,7 +160,10 @@ class _EventScreenState extends ControlledState<EventScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: AppGrid.margin),
                           child: Row(
                             children: [
-                              SvgPicture.asset("assets/icons/free.svg"),
+                              SvgPicture.asset(
+                                "assets/icons/free.svg",
+                                excludeFromSemantics: true,
+                              ),
                               const HSpace(6),
                               Text(
                                 "Wydarzenie bezpłatne",
@@ -160,11 +180,19 @@ class _EventScreenState extends ControlledState<EventScreen> {
                         child: Row(
                           children: [
                             if (widget.event.facebook != null) ...[
-                              SvgPicture.asset("assets/icons/logos/facebook.svg", width: 32),
+                              SvgPicture.asset(
+                                "assets/icons/logos/facebook.svg",
+                                width: 32,
+                                semanticsLabel: "Logo Facebooka",
+                              ),
                               const HSpace(20),
                             ],
                             if (widget.event.instagram != null) ...[
-                              SvgPicture.asset("assets/icons/logos/instagram.svg", width: 32),
+                              SvgPicture.asset(
+                                "assets/icons/logos/instagram.svg",
+                                width: 32,
+                                semanticsLabel: "Logo Instagrama",
+                              ),
                               const HSpace(20),
                             ],
                           ],

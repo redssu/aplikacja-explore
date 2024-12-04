@@ -61,6 +61,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
               padding: _padding,
               child: Text(
                 widget.event.title,
+                semanticsLabel: "Tytuł wydarzenia",
                 style: AppTypography.addToCalendarSheetTitle.copyWith(
                   color: const Color(0xFF313130),
                 ),
@@ -73,6 +74,7 @@ class _EventAddToCalendarSheetState extends ControlledState<EventAddToCalendarSh
               child: Text(
                 "${widget.event.location.place}\n"
                 "${widget.event.location.address}, ${widget.event.location.city}",
+                semanticsLabel: "Lokalizacja wydarzenia",
                 style: AppTypography.addToCalendarSheetDescription.copyWith(
                   color: const Color(0xFF313130),
                 ),

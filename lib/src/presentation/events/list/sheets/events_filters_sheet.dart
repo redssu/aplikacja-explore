@@ -1,4 +1,6 @@
 import "package:aplikacja_explore/dependency_container.dart";
+import "package:aplikacja_explore/src/common/consts/app_styles.dart";
+import "package:aplikacja_explore/src/common/consts/app_typography.dart";
 import "package:aplikacja_explore/src/common/layouts/sheet_layout.dart";
 import "package:aplikacja_explore/src/common/utils/controlled_state.dart";
 import "package:aplikacja_explore/src/common/utils/default_data_state_publisher_builder.dart";
@@ -86,7 +88,7 @@ class _EventsFiltersSheetState extends ControlledState<EventsFiltersSheet> {
                       ),
                     ],
                     //
-                    Divider(color: const Color(0xFF0066B1).withOpacity(0.4)),
+                    Divider(color: AppStyles.primaryColor.withOpacity(0.4)),
                     // MARK: Rodzaj wydarzenia
                     EventsFiltersListTile(
                       title: "Rodzaj wydarzenia",
@@ -108,7 +110,7 @@ class _EventsFiltersSheetState extends ControlledState<EventsFiltersSheet> {
                       ],
                     ),
                     //
-                    Divider(color: const Color(0xFF0066B1).withOpacity(0.4)),
+                    Divider(color: AppStyles.primaryColor.withOpacity(0.4)),
                     // MARK: Grupy docelowe
                     EventsFiltersListTile(
                       title: "Według wieku",
@@ -127,7 +129,7 @@ class _EventsFiltersSheetState extends ControlledState<EventsFiltersSheet> {
                       ],
                     ),
                     //
-                    Divider(color: const Color(0xFF0066B1).withOpacity(0.4)),
+                    Divider(color: AppStyles.primaryColor.withOpacity(0.4)),
                   ],
                 );
               },
@@ -154,22 +156,14 @@ class _EventsFiltersSheetState extends ControlledState<EventsFiltersSheet> {
               children: [
                 Text(
                   "${controller.minDistance}km",
-                  style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.normal,
+                  style: AppTypography.sliderMinMaxValueLabel.copyWith(
                     color: const Color(0xFF3C3C3B).withOpacity(0.7),
-                    fontSize: 12,
-                    height: 20 / 12,
                   ),
                 ),
                 Text(
                   "${controller.maxDistance}km",
-                  style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.normal,
+                  style: AppTypography.sliderMinMaxValueLabel.copyWith(
                     color: const Color(0xFF3C3C3B).withOpacity(0.7),
-                    fontSize: 12,
-                    height: 20 / 12,
                   ),
                 ),
               ],

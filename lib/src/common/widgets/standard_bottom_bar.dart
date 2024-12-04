@@ -53,29 +53,39 @@ class StandardBottomBar extends StatelessWidget {
         top: false,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-          child: Row(
-            children: [
-              for (final item in _items)
-                Expanded(
-                  child: GestureDetector(
-                    onTap: item.onTap,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        if (item == _currentlySelected) item.activeIcon else item.icon,
-                        const VSpace(13),
-                        Text(
-                          item.label,
-                          style: AppTypography.bottomBarItemLabel.copyWith(
-                            color: const Color(0xFF4D4C4C),
-                            fontWeight: item == _currentlySelected ? FontWeight.w900 : null,
-                          ),
+          child: Semantics(
+            label: "Menu dolne",
+            container: true,
+            child: Row(
+              children: [
+                for (final item in _items)
+                  Expanded(
+                    child: Semantics(
+                      button: true,
+                      label: "Element menu: ${item.label}",
+                      onTap: item.onTap,
+                      selected: item == _currentlySelected,
+                      child: GestureDetector(
+                        onTap: item.onTap,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            if (item == _currentlySelected) item.activeIcon else item.icon,
+                            const VSpace(13),
+                            Text(
+                              item.label,
+                              style: AppTypography.bottomBarItemLabel.copyWith(
+                                color: const Color(0xFF4D4C4C),
+                                fontWeight: item == _currentlySelected ? FontWeight.w900 : null,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

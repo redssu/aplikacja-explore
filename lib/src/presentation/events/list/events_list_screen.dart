@@ -44,10 +44,12 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                   actions: [
                     StandardAppBarAction(
                       icon: "assets/icons/search.svg",
+                      semanticsLabel: "Wyszukaj",
                       onTap: controller.onSearchButtonTapped,
                     ),
                     StandardAppBarAction(
                       icon: "assets/icons/filter.svg",
+                      semanticsLabel: "Otwórz kartę filtrów",
                       onTap: controller.onFilterButtonTapped,
                     ),
                   ],
@@ -66,13 +68,17 @@ class _EventsListScreenState extends ControlledState<EventsListScreen> {
                   return EdgePadding.gridDefined(
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 12.0),
-                      child: TextField(
-                        controller: controller.searchBarController,
-                        focusNode: controller.searchBarFocusNode,
-                        cursorColor: const Color(0xFF4D4C4C).withOpacity(0.9),
-                        cursorHeight: 19,
-                        style: AppTypography.searchBar,
-                        decoration: AppStyles.searchBar,
+                      child: Semantics(
+                        textField: true,
+                        label: "Wyszukaj wydarzenie",
+                        child: TextField(
+                          controller: controller.searchBarController,
+                          focusNode: controller.searchBarFocusNode,
+                          cursorColor: const Color(0xFF4D4C4C).withOpacity(0.9),
+                          cursorHeight: 19,
+                          style: AppTypography.searchBar,
+                          decoration: AppStyles.input,
+                        ),
                       ),
                     ),
                   );

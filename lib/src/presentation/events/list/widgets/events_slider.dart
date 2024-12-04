@@ -16,16 +16,21 @@ class EventsSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: EdgePadding.gridDefined(
-        child: Row(
-          children: [
-            for (var index = 0; index < events.length; index++) ...[
-              if (index != 0) const HSpace(10),
-              EventsSliderItem(event: events[index]),
+    return Semantics(
+      slider: true,
+      container: true,
+      label: "Slider wydarzeń",
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: EdgePadding.gridDefined(
+          child: Row(
+            children: [
+              for (var index = 0; index < events.length; index++) ...[
+                if (index != 0) const HSpace(10),
+                EventsSliderItem(event: events[index]),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );

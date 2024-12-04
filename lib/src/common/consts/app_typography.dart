@@ -30,6 +30,13 @@ class AppTypography {
     fontSize: 14,
   );
 
+  static const TextStyle sliderMinMaxValueLabel = TextStyle(
+    fontFamily: "Roboto",
+    fontWeight: FontWeight.normal,
+    fontSize: 12,
+    height: 20 / 12,
+  );
+
   /**
    * MARK: Event Filters
    */

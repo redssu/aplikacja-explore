@@ -23,29 +23,32 @@ class ImagePlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
-      child: ColoredBox(
-        color: const Color(0xFFE1E1E1),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(
-                Icons.error,
-                color: Colors.red,
-              ),
-              if (showText) ...[
-                const VSpace(5),
-                const Text(
-                  "Błąd ładowania obrazu",
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),
+    return Semantics(
+      excludeSemantics: true,
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: ColoredBox(
+          color: const Color(0xFFE1E1E1),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.error,
+                  color: Colors.red,
                 ),
+                if (showText) ...[
+                  const VSpace(5),
+                  const Text(
+                    "Błąd ładowania obrazu",
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
         ),
       ),
