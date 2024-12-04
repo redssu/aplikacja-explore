@@ -29,7 +29,7 @@ class EventsListItem extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         width: AppGrid.of(context).fullSize.width,
-        height: AppGrid.of(context).columns(2),
+        height: AppGrid.of(context).portraitColumns(2),
         child: DecoratedBox(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -46,8 +46,8 @@ class EventsListItem extends StatelessWidget {
             children: [
               // MARK: Obraz
               SizedBox(
-                width: AppGrid.of(context).columns(2),
-                height: AppGrid.of(context).columns(2),
+                width: AppGrid.of(context).portraitColumns(2),
+                height: AppGrid.of(context).portraitColumns(2),
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),

@@ -17,7 +17,7 @@ class EventsSliderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: AppGrid.of(context).columns(5),
+      width: AppGrid.of(context).portraitColumns(5),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: AspectRatio(
@@ -25,7 +25,7 @@ class EventsSliderItem extends StatelessWidget {
           child: Image.asset(
             event.image,
             fit: BoxFit.cover,
-            width: AppGrid.of(context).columns(5),
+            width: AppGrid.of(context).portraitColumns(5),
             errorBuilder: ImagePlaceholder.errorBuilder(showText: false),
           ),
         ),
