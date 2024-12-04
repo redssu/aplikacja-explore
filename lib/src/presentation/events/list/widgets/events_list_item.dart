@@ -28,7 +28,7 @@ class EventsListItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
-        width: AppGrid.of(context).fullSize,
+        width: AppGrid.of(context).fullSize.width,
         height: AppGrid.of(context).columns(2),
         child: DecoratedBox(
           decoration: BoxDecoration(
@@ -133,7 +133,7 @@ class _EventsListItemShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: AppGrid.of(context).fullSize,
+      width: AppGrid.of(context).fullSize.width,
       height: AppGrid.of(context).columns(2),
       child: DecoratedBox(
         decoration: BoxDecoration(

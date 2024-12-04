@@ -77,7 +77,7 @@ class _EventScreenState extends ControlledState<EventScreen> {
                       ),
                       const VSpace(14),
                       SizedBox(
-                        width: AppGrid.of(context).fullSize - AppGrid.margin,
+                        width: AppGrid.of(context).fullSize.width - AppGrid.margin,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(6),
                           child: Image.asset(
